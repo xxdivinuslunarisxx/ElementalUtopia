@@ -1,5 +1,0 @@
-# allow framework files
-/_framework/*  /_framework/:splat  200
-
-# SPA fallback
-/*             /index.html        200
