@@ -1,0 +1,29 @@
+@namespace ElementalUtopia.Components.Nav
+
+<nav class="eu-navbar">
+    <div class="eu-nav-inner">
+
+        <a class="eu-brand" href="/">Elemental Utopia</a>
+
+        <button class="eu-burger" @onclick="ToggleMenu">
+            @(menuOpen ? "✕" : "☰")
+        </button>
+
+        <div class="eu-links @(menuOpen ? "open" : "")">
+            <a class="eu-link" href="/">Home</a>
+            <a class="eu-link" href="/menu">Menu</a>
+            <a class="eu-link" href="/about">About</a>
+            <a class="eu-link" href="/logo">Logo</a>
+        </div>
+
+    </div>
+</nav>
+
+@code {
+    private bool menuOpen;
+
+    private void ToggleMenu()
+    {
+        menuOpen = !menuOpen;
+    }
+}

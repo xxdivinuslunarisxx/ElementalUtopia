@@ -1,0 +1,65 @@
+@page "/experiments"
+
+@using ElementalUtopia.Models
+@using ElementalUtopia.Services
+@using ElementalUtopia.Components
+@inject ExperimentService ExperimentService
+
+<PageTitle>Experiments - Elemental Utopia</PageTitle>
+
+<HeadContent>
+    <meta name="description" content="Coffee extraction experiments exploring how grind, ratio, and time affect flavour outcomes.">
+</HeadContent>
+
+<div class="experiments-grid">
+    @foreach (var exp in experiments)
+    {
+        <div class="experiment-card">
+
+            <div class="experiment-title">@exp.Title</div>
+            <div class="experiment-meta">@exp.Meta</div>
+
+            <span class="tag">@exp.Tag</span>
+
+            <p>@exp.Summary</p>
+
+            <div class="card-actions">
+                <button class="btn primary"
+                        @onclick="() => OpenExperiment(exp.Id)">
+                    Science Mode
+                </button>
+            </div>
+
+        </div>
+    }
+</div>
+
+<ExperimentModal IsOpen="showModal"
+                 Title="@selectedExperiment?.Title"
+                 Meta="@selectedExperiment?.Meta"
+                 Summary="@selectedExperiment?.Summary"
+                 OnClose="CloseModal" />
+
+@code {
+    private List<Experiment> experiments = new();
+
+    private bool showModal = false;
+    private Experiment? selectedExperiment;
+
+    protected override async Task OnInitializedAsync()
+    {
+        experiments = await ExperimentService.GetExperiments();
+    }
+
+    private void OpenExperiment(string id)
+    {
+        selectedExperiment = experiments.FirstOrDefault(x => x.Id == id);
+        showModal = true;
+    }
+
+    private void CloseModal()
+    {
+        showModal = false;
+        selectedExperiment = null;
+    }
+}

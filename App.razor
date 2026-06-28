@@ -1,0 +1,14 @@
+﻿@using ElementalUtopia.Pages
+
+<Router AppAssembly="@typeof(App).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(ElementalUtopia.Components.Layout.MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+
+    <NotFound>
+        <LayoutView Layout="@typeof(ElementalUtopia.Components.Layout.MainLayout)">
+            <ElementalUtopia.Pages.NotFound />
+        </LayoutView>
+    </NotFound>
+</Router>
