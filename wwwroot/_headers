@@ -1,0 +1,14 @@
+/*
+  X-Content-Type-Options: nosniff
+
+/*.wasm
+  Content-Type: application/wasm
+
+/*.dll
+  Content-Type: application/octet-stream
+
+/*.br
+  Content-Encoding: br
+
+/*.gz
+  Content-Encoding: gzip
