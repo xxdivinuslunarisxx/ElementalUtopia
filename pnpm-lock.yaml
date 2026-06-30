@@ -14,9 +14,6 @@ importers:
       next:
         specifier: ^16.2.9
         version: 16.2.9(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
-      pnpm-workspace.yamlaml:
-        specifier: link:pnpm-workspace.yamlaml
-        version: link:pnpm-workspace.yamlaml
       react:
         specifier: ^19.2.7
         version: 19.2.7
