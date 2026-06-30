@@ -5,4 +5,4 @@ chmod +x dotnet-install.sh
 
 ./dotnet-install.sh -c 10.0 -InstallDir ./dotnet
 
-./dotnet/dotnet publish -c Release -o publish/wwwroot
+./dotnet/dotnet publish -c Release -o wwwroot
