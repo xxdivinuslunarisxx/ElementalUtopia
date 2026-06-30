@@ -1,28 +1,18 @@
 #!/bin/sh
+set -eux
 
-set -e
+rm -rf bin obj output publish dotnet dotnet-install.sh
 
-rm -rf bin obj publish
-
-echo "=== INSTALLING DOTNET SDK ==="
-curl -sSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh
+curl -sSL https://dot.net/v1/dotnet-install.sh > dotnet-install.sh
 chmod +x dotnet-install.sh
 
 ./dotnet-install.sh -c 10.0 -InstallDir ./dotnet
 
-export DOTNET_ROOT=$(pwd)/dotnet
-export PATH=$(pwd)/dotnet:$PATH
+./dotnet/dotnet --version
+./dotnet/dotnet publish -c Release -o output
 
-echo "=== START PUBLISH ==="
-
-./dotnet/dotnet publish -c Release -o publish
-
-echo "=== PUBLISH DONE ==="
-
-echo "=== WWWROOT ==="
-find publish/wwwroot -type f
-
-echo "=== CHECKING BLazor OUTPUT ==="
-find publish -name "blazor.boot.json" || true
-find publish -name "*.wasm" | head || true
-find publish -name "index.html" || true
+echo "=== CHECKING BLAZOR OUTPUT ==="
+find output/wwwroot -maxdepth 3 -type f | sort | head -200
+test -f output/wwwroot/index.html
+test -f output/wwwroot/_framework/blazor.boot.json
+find output/wwwroot/_framework -name "dotnet*.js" -print -quit
