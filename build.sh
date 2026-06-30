@@ -13,6 +13,8 @@ chmod +x dotnet-install.sh
 
 echo "=== CHECKING BLAZOR OUTPUT ==="
 find output/wwwroot -maxdepth 3 -type f | sort | head -200
+
 test -f output/wwwroot/index.html
-test -f output/wwwroot/_framework/blazor.boot.json
-find output/wwwroot/_framework -name "dotnet*.js" -print -quit
+find output/wwwroot/_framework -name "blazor.webassembly*.js" -print -quit | grep .
+find output/wwwroot/_framework -name "dotnet*.js" -print -quit | grep .
+find output/wwwroot/_framework -name "*.wasm" -print -quit | grep .
