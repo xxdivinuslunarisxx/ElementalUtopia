@@ -1,4 +1,5 @@
 #!/bin/sh
+rm -rf bin obj publish
 
 curl -sSL https://dot.net/v1/dotnet-install.sh > dotnet-install.sh
 chmod +x dotnet-install.sh
@@ -7,7 +8,7 @@ chmod +x dotnet-install.sh
 
 echo "=== START PUBLISH ==="
 
-./dotnet/dotnet publish -c Release
+./dotnet/dotnet publish -c Release -o publish
 
 echo "=== PUBLISH DONE ==="
 echo "OUTPUT FOLDER CONTENTS:"
