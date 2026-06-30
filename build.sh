@@ -7,7 +7,7 @@ chmod +x dotnet-install.sh
 
 echo "=== START PUBLISH ==="
 
-./dotnet/dotnet publish -c Release -o publish
+./dotnet/dotnet publish -c Release
 
 echo "=== PUBLISH DONE ==="
 echo "OUTPUT FOLDER CONTENTS:"
