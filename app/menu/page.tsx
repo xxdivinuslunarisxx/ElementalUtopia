@@ -43,16 +43,7 @@ export default function MenuPage() {
             unset while the launch menu is being finalised.
           </p>
         </div>
-        <div className="posterFrame">
-          <Image
-            src="/images/menu.png"
-            alt="Elemental Utopia coffee drinks menu poster"
-            width={1414}
-            height={2000}
-            sizes="(max-width: 900px) 88vw, 360px"
-            priority
-          />
-        </div>
+        
       </section>
 
       <section className="menuColumns" aria-label="Coffee drinks">
