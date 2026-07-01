@@ -29,7 +29,8 @@ export function SiteNav() {
           aria-controls="primary-menu"
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? "Close" : "Menu"}
+          {open ? "X" : "☰"}   
+          {/*Button image for Mobile*/}
         </button>
         <div className={`navLinks ${open ? "navLinksOpen" : ""}`} id="primary-menu">
           {navItems.map((item) => {
