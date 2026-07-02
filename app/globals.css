@@ -671,6 +671,8 @@ main {
 }
 /*#endregion*/
 /*#region STORY*/
+
+/* has the funny boxes of text */
 .storyGrid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   padding: 18px 0;
@@ -685,16 +687,37 @@ main {
   margin-bottom: 10;
 }
 
+/* The why we exist part */
 .storyBand {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 260px);
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 420px);
   align-items: center;
   gap: clamp(30px, 6vw, 70px);
+  padding: 30px 10px;
 }
 
+.storyBand h2{
+  margin-left: 4vw;
+}
+
+
+
 .storyLogo {
-  width: min(100%, 260px);
-  justify-self: center;
+  width: 100%;
+  height: auto;
+  max-width: none;
+}
+@media (max-width: 768px) {
+  .storyBand {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+  .storyLogo {
+    width: 100%;
+    max-width: clamp(200px, 55vw, 300px);
+    height: auto;
+}
 }
 
 .logoHero {
@@ -710,6 +733,50 @@ main {
 }
 /*#endregion*/
 /*#region LOGO*/
+
+.logotopbox {
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) 1fr;
+  align-items: center;
+  gap: clamp(28px, 6vw, 70px);
+  padding: clamp(16px, 3vw, 48px);
+}
+
+.logoimgbox{
+  width: 100%;
+  height: auto;
+  max-width: clamp(220px, 50vw, 400px);
+}
+
+.logotextbox h1, p {
+  padding: 10px 0;
+}
+
+.logotextbox p {
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
+  line-height: 1.6;
+
+}
+
+@media (max-width: 768px) {
+  .logotopbox {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0px;
+  }
+
+  .logoimgbox{
+    justify-self: center;
+  }
+}
+
+.logoHero {
+  display: grid;
+  grid-template-columns: minmax(180px, 280px) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 6vw, 70px);
+}
+
 .elementGrid{
   display: flex;
   gap: 18px;
@@ -766,7 +833,7 @@ main {
   /*#endregion*/
 /* #region EXPERIMENTS */
 /* #endregion */
-  /*#region 404*/
+/*#region 404*/
 
 
 .notFound {

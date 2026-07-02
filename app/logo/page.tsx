@@ -33,9 +33,11 @@ const elements = [
 export default function LogoPage() {
   return (
     <div className="pageStack">
-      <section className="pageHero logoHero">
-        <LogoMark priority className="logoPageMark" />
-        <div>
+      <section className="logotopbox">
+        <LogoMark priority className="logoimgbox" />
+        <div className="logotextbox">
+
+        
           <h1>Our Logo</h1>
           <p>
             The logo is made up of the four elements and the sun. Each part
