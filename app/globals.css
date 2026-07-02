@@ -117,7 +117,6 @@ main {
 /*Grid / box PARENT ELEMENT*/
 .featureGrid,
 .definitionList,
-.elementGrid,
 .storyGrid,
 .menuColumns {
   display: flex;
@@ -344,7 +343,6 @@ main {
   .featureGrid,
   .menuColumns,
   .definitionList,
-  .elementGrid,
   .storyGrid {
     grid-template-columns: 1fr;
     flex-direction: column;
@@ -357,7 +355,6 @@ main {
 /* media child card thing */
   .featureCard,
   .menuPanel,
-  .elementCard,
   .storyBlock,
   .emptyState {
     width: 92vw;
@@ -366,6 +363,14 @@ main {
 
   .siteFooter {
     flex-direction: column;
+  }
+  .definitionList {
+    grid-template-columns: 1;
+    align-items: start;
+  }
+
+  .definitionList article {
+    margin-left: 10px;
   }
 }
 
@@ -533,7 +538,27 @@ main {
 /*#region ============PAGES-==================*/
 
 /*#region HOME*/
+.homebigbox{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  align-items: center;
+  gap: clamp(32px, 7vw, 92px);
+  padding: clamp(28px, 5vw, 52px) 0 clamp(24px, 4vw, 42px);
+}
 
+.homevisualbox {
+  justify-content: center;
+  justify-items: center;
+}
+
+.homeLogo{
+  width: clamp(220px, 28vw, 360px);
+}
+
+.hometextbox {
+  max-width: 660px;
+  margin-left: 18px;
+}
 
 /* big box at top holding everything in  */
 .heroSection {
@@ -552,7 +577,6 @@ main {
 
 .heroLogo {
   width: clamp(220px, 28vw, 360px);
-
 }
 
 .heroCopy {
@@ -563,6 +587,8 @@ main {
 
 /*#endregion*/
 /*#region MENU*/
+
+
 .posterFrame {
   width: min(100%, 320px);
   justify-self: end;
@@ -628,6 +654,7 @@ main {
   grid-template-columns: repeat(5, minmax(0, 2fr));
 }
 
+
 .definitionList article {
   border-left: 3px solid var(--accent);
   padding-left: 16px;
@@ -640,7 +667,7 @@ main {
 
 .definitionList h3{
   font-size: clamp(1rem, 2vw, 1.25rem);
-
+  white-space: nowrap;
 }
 /*#endregion*/
 /*#region STORY*/
@@ -651,7 +678,11 @@ main {
 
 .storyBlock p + p,
 .storyBand p + p {
-  margin-top: 14px;
+  margin-top: 15px;
+}
+
+.storyBlock h2 {
+  margin-bottom: 10;
 }
 
 .storyBand {
@@ -678,10 +709,31 @@ main {
   width: min(100%, 280px);
 }
 /*#endregion*/
-/*#region EXPERIMENTS*/
-.elementGrid {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+/*#region LOGO*/
+.elementGrid{
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.elementCard {
+ flex: 0 1 calc((100% - 2 * 18px) / 3);
+}
+
+
+@media (width < 800px) {
+  .elementCard {
+     flex: 0 1 calc((100% - 2 * 18px) / 2);
+  }
+}
+
+@media (width < 500) {
+  .elementCard {
+    flex: 0 1 calc((100% - 2 * 18px) / 1);
+  }
+}
+
 
 .elementCard:nth-child(1) {
   border-top-color: #a8775d;
@@ -706,9 +758,15 @@ main {
 .emptyState {
   padding: clamp(28px, 5vw, 44px);
 }
-  
+
+
+.elementCard h2 {
+  white-space: nowrap;
+}
   /*#endregion*/
-/*#region 404*/
+/* #region EXPERIMENTS */
+/* #endregion */
+  /*#region 404*/
 
 
 .notFound {
@@ -725,10 +783,12 @@ main {
 
 .pageHero h1 {
   max-width: 13ch;
+  padding: 0 2vw;  
 }
 
 .pageHero p {
   max-width: 760px;
+  padding: 0 2vw;  
 }
 
 .splitHero {

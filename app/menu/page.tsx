@@ -35,7 +35,7 @@ const prepNotes = [
 export default function MenuPage() {
   return (
     <div className="pageStack">
-      <section className="pageHero splitHero">
+      <section className="pageHero">
         <div>
           <h1>Menu</h1>
           <p>

@@ -19,11 +19,11 @@ const focusAreas = [
 export default function Home() {
   return (
     <>
-      <section className="heroSection">
-        <div className="heroVisual">
-          <LogoMark priority className="heroLogo" />
+      <section className="homebigbox">
+        <div className="homevisualbox">
+          <LogoMark priority className="homeLogo" />
         </div>
-        <div className="heroCopy">
+        <div className="hometextbox">
           <h1>Elemental Utopia</h1>
           <p className="heroSubtitle">
             Specialty Coffee / Coffee Science / Extraction Focus
