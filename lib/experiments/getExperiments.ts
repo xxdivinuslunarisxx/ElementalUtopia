@@ -10,9 +10,14 @@ export function getExperiments(): Experiment[] {
   );
 
   if (!fs.existsSync(experimentsDirectory)) {
-    console.error("Experiments folder missing:", experimentsDirectory);
+    console.error("Missing:", experimentsDirectory);
     return [];
   }
+
+  console.log(
+    "Experiment files:",
+    fs.readdirSync(experimentsDirectory)
+  );
 
   const files = fs.readdirSync(experimentsDirectory);
 
