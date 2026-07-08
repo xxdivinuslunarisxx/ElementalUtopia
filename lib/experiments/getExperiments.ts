@@ -9,9 +9,14 @@ export function getExperiments(): Experiment[] {
     "experiments"
   );
 
+  if (!fs.existsSync(experimentsDirectory)) {
+    console.error("Experiments folder missing:", experimentsDirectory);
+    return [];
+  }
+
   const files = fs.readdirSync(experimentsDirectory);
 
-  const experiments = files
+  return files
     .filter((file) => file.endsWith(".json"))
     .map((file) => {
       const filePath = path.join(
@@ -22,25 +27,26 @@ export function getExperiments(): Experiment[] {
       const json = fs.readFileSync(filePath, "utf8");
 
       return JSON.parse(json) as Experiment;
+    })
+    .sort((a, b) => {
+      const order = {
+        Complete: 1,
+        "In Progress": 2,
+        Planned: 3,
+      };
+
+      return (
+        (order[a.status] ?? 99) -
+        (order[b.status] ?? 99)
+      );
     });
-
-  const statusOrder = {
-    Complete: 1,
-    "In Progress": 2,
-    Planned: 3
-  };
-
-  return experiments.sort(
-    (a, b) =>
-      statusOrder[a.status] - statusOrder[b.status]
-  );
 }
 
 
-export function getExperiment(slug: string): Experiment | undefined {
-  const experiments = getExperiments();
-
-  return experiments.find(
+export function getExperiment(
+  slug: string
+): Experiment | undefined {
+  return getExperiments().find(
     (experiment) => experiment.id === slug
   );
 }
