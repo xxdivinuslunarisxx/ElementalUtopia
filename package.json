@@ -4,7 +4,8 @@
   "private": true,
   "packageManager": "pnpm@10.33.2",
   "scripts": {
-    "build": "next build",
+    "generate:experiments": "tsx scripts/generateExperiments.ts",
+    "build": "npm run generate:experiments && next build",
     "dev": "next dev",
     "start": "next start",
     "typecheck": "tsc --noEmit",
@@ -23,6 +24,8 @@
     "@types/node": "^26.0.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "fast-glob": "^3.3.3",
+    "tsx": "^4.23.0",
     "typescript": "^6.0.3",
     "wrangler": "^4.105.0"
   }

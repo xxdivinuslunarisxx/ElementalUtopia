@@ -1,28 +1,37 @@
-export type ExperimentStatus = 
+export type ExperimentStatus =
   | "Planned"
   | "In Progress"
   | "Complete";
+
 
 export type ExperimentType =
   | "Observation"
   | "Experiment";
 
+
 export type CoffeeDetails = {
-  name: string;
-  dose: string;
-  yield: string;
-  ratio: string;
+  name?: string;
+  dose?: string;
+  yield?: string;
+  ratio?: string;
+
+  [key: string]: unknown;
 };
 
-export type ExtractionTest = {
-  time: string;
-  notes: string;
+
+export type ExperimentTest = {
+  time?: string;
+  notes?: string;
+
+  [key: string]: unknown;
 };
 
-export type ExperimentMethod = {
-  test_one: ExtractionTest;
-  test_two: ExtractionTest;
-};
+
+export type ExperimentMethod = Record<
+  string,
+  ExperimentTest
+>;
+
 
 export type Experiment = {
   id: string;
@@ -32,17 +41,23 @@ export type Experiment = {
 
   summary: string;
 
-  coffee: CoffeeDetails;
+  coffee?: CoffeeDetails;
 
-  question: string;
-  hypothesis: string;
+  question?: string;
+  hypothesis?: string;
 
-  method: ExperimentMethod;
+  method?: ExperimentMethod;
 
-  results: string;
-  conclusion: string;
+  results?: string;
+  conclusion?: string;
 
-  limitations: string[];
+  limitations?: string[];
 
-  next_steps: string;
+  next_steps?: string;
+
+  variables?: {
+    independent?: string[];
+    controlled?: string[];
+    dependent?: string[];
+  };
 };

@@ -128,7 +128,7 @@ export default async function ExperimentPage({
       )}
 
 
-      {experiment.limitations?.length > 0 && (
+      {experiment.limitations && experiment.limitations.length > 0 && (
         <section>
           <h2>Limitations</h2>
 

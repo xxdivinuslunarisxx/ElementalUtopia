@@ -1,0 +1,11 @@
+{
+  "id": "pressure-profile",
+  "title": "Pressure Profile Espresso Experiment",
+  "type": "Experiment",
+  "status": "Planned",
+  "summary": "Exploring how pressure profiling affects espresso extraction.",
+  "question": "How does changing pressure during extraction influence flavour?",
+  "hypothesis": "Different pressure profiles may influence extraction behaviour and flavour clarity.",
+  "limitations": [],
+  "next_steps": "Test pressure profiles once suitable equipment is available."
+}
