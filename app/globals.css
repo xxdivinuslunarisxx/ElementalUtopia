@@ -832,6 +832,167 @@ main {
 }
   /*#endregion*/
 /* #region EXPERIMENTS */
+
+/* #region Exp-home */
+.experimentsHeader {
+  padding: 2vh 2vw;
+}
+.experimentSections {
+  padding: 2rem 4vw;
+}
+
+.experimentSection {
+  margin-bottom: 4rem;
+}
+
+.experimentSection h2 {
+
+  margin-bottom: 2rem;
+}
+
+
+.experimentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+
+}
+
+
+.experimentCard {
+  padding: 2rem;
+
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+
+  background: var(--surface);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  transition: transform .2s ease;
+}
+
+
+.experimentCard:hover {
+  transform: translateY(-6px);
+}
+
+
+.experimentCardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.experimentCategory {
+  font-size: .75rem;
+  letter-spacing: .15em;
+  font-weight: 700;
+}
+
+
+.experimentStatus {
+  padding: .35rem .8rem;
+  border-radius: 999px;
+
+  font-size: .8rem;
+}
+
+
+.experimentCard h2 {
+  font-size: 1.7rem;
+  line-height: 1.2;
+}
+
+
+.experimentSummary {
+  line-height: 1.7;
+  opacity: .85;
+}
+
+
+.experimentFooter {
+  margin-top: auto;
+}
+
+/* #endregion */
+
+
+/* #region Exp-Insides */
+.experimentHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 2vh 2vw;
+}
+
+
+.experimentBadges {
+  display: flex;
+  gap: .75rem;
+  align-items: center;
+}
+
+
+.experimentType,
+.experimentStatus {
+  display: inline-flex;
+  align-items: center;
+
+  width: fit-content;
+
+  padding: .35rem .85rem;
+
+  border-radius: 999px;
+
+  font-size: .75rem;
+  font-weight: 700;
+
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+
+.experimentType {
+  border: 1px solid var(--border);
+  background: transparent;
+}
+
+
+.experimentStatus {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+
+.experimentPage section {
+  padding: 2vh 2vw;
+
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+}
+
+
+.experimentPage h2 {
+  font-size: 1.5rem;
+}
+
+
+.experimentPage p {
+  line-height: 1.7;
+}
+
+
+
+/* #endregion */
+
+
+
 /* #endregion */
 /*#region 404*/
 

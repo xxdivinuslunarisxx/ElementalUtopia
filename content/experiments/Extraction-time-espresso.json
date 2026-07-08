@@ -1,0 +1,44 @@
+{
+  "id": "extraction-time-espresso",
+  "title": "When Extraction Time Breaks the Framework",
+  "type": "Observation",
+  "status": "Complete",
+
+  "summary": "Exploring how Red Brick from Square Mile Coffee behaved outside traditional espresso extraction time guidelines.",
+
+  "coffee": {
+    "name": "Red Brick - Square Mile Coffee",
+    "dose": "18g",
+    "yield": "36g",
+    "ratio": "1:2"
+  },
+
+  "question": "Can a shorter extraction time produce a desirable espresso when traditional guidelines suggest a longer extraction?",
+
+  "hypothesis": "A shorter extraction time may preserve more fruit-forward characteristics in certain coffees, even when the shot falls outside conventional espresso extraction windows.",
+
+  "method": {
+    "longer_extraction": {
+      "time": "28 seconds",
+      "notes": "Nutty, bitter-dominant, heavy body, and a fuller mouthfeel."
+    },
+
+    "shorter_extraction": {
+      "time": "19 seconds",
+      "notes": "More fruit-forward, with notes of caramelised apple, brighter acidity, and a more expressive profile."
+    }
+  },
+
+  "results": "The shorter extraction produced a more fruit-forward and expressive espresso compared to the longer extraction, which presented heavier body and more bitterness.",
+
+  "conclusion": "This observation suggests that extraction time alone does not determine espresso quality. While traditional frameworks provide useful starting points, some coffees may express their intended characteristics outside commonly recommended extraction windows.",
+
+  "limitations": [
+    "Only one coffee was tested.",
+    "Only two extraction times were compared.",
+    "Sensory evaluation was subjective.",
+    "Other extraction variables were not independently controlled."
+  ],
+
+  "next_steps": "Repeat the observation across multiple coffees to determine whether this behaviour is specific to Red Brick or represents a wider extraction pattern."
+}

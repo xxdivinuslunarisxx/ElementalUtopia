@@ -1,0 +1,71 @@
+{
+  "id": "espresso-flow-rate-extraction",
+  "title": "The Effect of Flow Rate on Espresso Extraction",
+  "type": "Experiment",
+  "status": "Planned",
+
+  "summary": "Investigating how changes in espresso flow rate influence flavour clarity, sweetness, body, and extraction characteristics.",
+
+  "coffee": {
+    "name": "TBD",
+    "dose": "18g",
+    "yield": "36g",
+    "ratio": "1:2"
+  },
+
+  "question": "How does controlling flow rate affect espresso flavour when other brewing variables remain consistent?",
+
+  "hypothesis": "Slower flow rates may increase contact time and extraction, potentially increasing sweetness and body, while faster flow rates may preserve brighter acidity and lighter characteristics.",
+
+  "variables": {
+    "independent": [
+      "Flow rate"
+    ],
+    "controlled": [
+      "Coffee",
+      "Dose",
+      "Yield",
+      "Temperature",
+      "Grind size",
+      "Distribution",
+      "Tamping"
+    ],
+    "dependent": [
+      "Extraction time",
+      "Flavour clarity",
+      "Sweetness",
+      "Body",
+      "Acidity",
+      "Bitterness"
+    ]
+  },
+
+  "method": {
+    "slow_flow": {
+      "flow_rate": "1.0 ml/s",
+      "notes": "Pending"
+    },
+
+    "medium_flow": {
+      "flow_rate": "2.0 ml/s",
+      "notes": "Pending"
+    },
+
+    "fast_flow": {
+      "flow_rate": "3.0 ml/s",
+      "notes": "Pending"
+    }
+  },
+
+  "results": "Pending",
+
+  "conclusion": "Pending",
+
+  "limitations": [
+    "Taste evaluation is subjective.",
+    "Only one coffee may be tested initially.",
+    "Flow rate changes may influence other extraction variables."
+  ],
+
+  "next_steps": "Repeat across different roast profiles to determine whether flow rate preference depends on coffee style."
+}

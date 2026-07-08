@@ -1,0 +1,78 @@
+{
+  "id": "espresso-temperature-extraction",
+  "title": "The Effect of Extraction Temperature on Espresso Character",
+  "type": "Experiment",
+  "status": "Planned",
+
+  "summary": "Investigating how changes in brew temperature influence espresso extraction, flavour clarity, sweetness, and bitterness.",
+
+  "coffee": {
+    "name": "TBD",
+    "dose": "18g",
+    "yield": "36g",
+    "ratio": "1:2"
+  },
+
+  "question": "How does brew temperature affect espresso flavour when all other variables are kept consistent?",
+
+  "hypothesis": "Higher extraction temperatures may increase extraction of less soluble compounds, potentially increasing body and bitterness, while lower temperatures may preserve more delicate flavours.",
+
+  "variables": {
+    "independent": [
+      "Brew temperature"
+    ],
+    "controlled": [
+      "Dose",
+      "Yield",
+      "Grind size",
+      "Coffee",
+      "Distribution technique",
+      "Pressure profile"
+    ],
+    "dependent": [
+      "Flavour perception",
+      "Sweetness",
+      "Acidity",
+      "Bitterness",
+      "Body"
+    ]
+  },
+
+  "method": {
+    "temperature_1": {
+      "temperature": "90°C",
+      "notes": "Pending"
+    },
+    "temperature_2": {
+      "temperature": "93°C",
+      "notes": "Pending"
+    },
+    "temperature_3": {
+      "temperature": "96°C",
+      "notes": "Pending"
+    }
+  },
+
+  "participants": [
+    {
+      "role": "Primary tester",
+      "notes": "Brewer"
+    },
+    {
+      "role": "Secondary tester",
+      "notes": "Blind tasting participant"
+    }
+  ],
+
+  "results": "Pending",
+
+  "conclusion": "Pending",
+
+  "limitations": [
+    "Sensory evaluation is subjective.",
+    "Only one coffee may be tested initially.",
+    "Human preference may influence scoring."
+  ],
+
+  "next_steps": "Repeat with additional coffees to determine whether results are coffee-specific."
+}

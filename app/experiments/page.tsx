@@ -1,38 +1,80 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Experiments",
-  description:
-    "Coffee extraction experiments from Elemental Utopia, covering grind, ratio, time, and flavour outcomes."
-};
+import { getExperiments } from "@/lib/experiments/getExperiments";
+import ExperimentCard from "@/components/ExperimentCard";
 
 export default function ExperimentsPage() {
+  const experiments = getExperiments();
+
+  const completed = experiments.filter(
+    (experiment) => experiment.status === "Complete"
+  );
+
+  const planned = experiments.filter(
+    (experiment) => experiment.status === "Planned"
+  );
+
+  const inProgress = experiments.filter(
+    (experiment) => experiment.status === "In Progress"
+  );
+
   return (
-    <div className="pageStack">
-      <section className="pageHero">
+    <main>
+      <header className="experimentsHeader">
         <h1>Experiments</h1>
         <p>
-          This page is ready for extraction notes once there is real experiment
-          data to publish.
+          Exploring coffee through controlled testing,
+          observation, and curiosity.
         </p>
-        <div className="buttonRow">
-          <Link className="button buttonPrimary" href="/menu">
-            Explore Menu
-          </Link>
-          <Link className="button buttonSecondary" href="/about">
-            Read the Story
-          </Link>
-        </div>
-      </section>
+      </header>
 
-      <section className="emptyState">
-        <h2>Coming Soon</h2>
-        <p>
-          Future entries can live here as simple typed content: title, brew
-          variables, flavour notes, and what changed between tests.
-        </p>
-      </section>
-    </div>
+      <div className="experimentSections">
+
+        {completed.length > 0 && (
+          <section className="experimentSection">
+            <h2>Completed Experiments</h2>
+
+            <div className="experimentGrid">
+              {completed.map((experiment) => (
+                <ExperimentCard
+                  key={experiment.id}
+                  experiment={experiment}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {inProgress.length > 0 && (
+          <section className="experimentSection">
+            <h2>In Progress</h2>
+
+            <div className="experimentGrid">
+              {inProgress.map((experiment) => (
+                <ExperimentCard
+                  key={experiment.id}
+                  experiment={experiment}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+        {planned.length > 0 && (
+          <section className="experimentSection">
+            <h2>Planned Experiments</h2>
+
+            <div className="experimentGrid">
+              {planned.map((experiment) => (
+                <ExperimentCard
+                  key={experiment.id}
+                  experiment={experiment}
+                />
+              ))}
+            </div>
+          </section>
+        )}
+
+      </div>
+      
+    </main>
   );
 }

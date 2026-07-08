@@ -19,7 +19,7 @@ export default function AboutPage() {
       </section>
 
       <section className="storyGrid">
-        <article className="storyBlock">
+        <div className="storyBlock">
           <h2>Curiosity Became Obsession</h2>
           <p>
             At first, it was not a business idea. It was curiosity. A small
@@ -27,17 +27,17 @@ export default function AboutPage() {
             dive into specialty coffee.
           </p>
           <p>
-            The difference between commodity coffee and properly extracted
-            espresso was massive. It felt like discovering that coffee was not
+            The difference between commodity coffee and specialty
+            Coffee was massive. It felt like discovering that coffee was not
             one thing, but a whole spectrum of flavour waiting to be understood.
           </p>
           <p>
-            One moment that stayed was tasting a coffee that genuinely tasted
-            like blueberries: bright, sweet, almost like juice in a cup. It was
+            One moment that stayed was tasting a coffee that tasted
+            like blueberries, bright, sweet, almost like juice in a cup. It was
             unexpected, almost unreal, and that clarity and intensity has shaped
             the chase ever since.
           </p>
-        </article>
+        </div>
 
         <article className="storyBlock">
           <h2>Building Through Iteration</h2>

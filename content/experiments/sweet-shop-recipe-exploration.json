@@ -1,0 +1,74 @@
+{
+  "id": "sweet-shop-recipe-exploration",
+  "title": "Finding the Sweet Spot: Square Mile Sweet Shop Espresso Recipe Exploration",
+  "type": "Experiment",
+  "status": "In Progress",
+
+  "summary": "Exploring how different espresso ratios affect flavour expression, balance, and extraction characteristics in Square Mile Sweet Shop coffee.",
+
+  "coffee": {
+    "name": "Sweet Shop - Square Mile Coffee",
+    "dose": "18g",
+    "yield": "Variable",
+    "ratio": "Variable"
+  },
+
+  "question": "Which espresso ratio best represents the flavour profile of Sweet Shop coffee?",
+
+  "hypothesis": "Different brew ratios will emphasise different characteristics of the coffee. Longer ratios may increase clarity and fruit expression, while shorter ratios may increase body and intensity.",
+
+  "variables": {
+    "independent": [
+      "Brew ratio"
+    ],
+    "controlled": [
+      "Coffee dose",
+      "Coffee bean",
+      "Machine",
+      "Target extraction time",
+      "Puck preparation method"
+    ],
+    "dependent": [
+      "Sweetness",
+      "Acidity",
+      "Body",
+      "Clarity",
+      "Bitterness",
+      "Overall preference"
+    ]
+  },
+
+  "method": {
+    "recipes": {
+      "1:4": {
+        "target_time": "25-30 seconds",
+        "notes": "Pending"
+      },
+      "1:3": {
+        "target_time": "25-30 seconds",
+        "notes": "Pending"
+      },
+      "1:2": {
+        "target_time": "25-30 seconds",
+        "notes": "Pending"
+      },
+      "1:1.5": {
+        "target_time": "25-30 seconds",
+        "notes": "Pending"
+      }
+    }
+  },
+
+  "results": "Experiment in progress.",
+
+  "conclusion": "Pending",
+
+  "limitations": [
+    "No TDS measurements were taken.",
+    "Sensory evaluation is subjective.",
+    "Extraction time alone does not represent full extraction quality.",
+    "Puck preparation consistency may influence results."
+  ],
+
+  "next_steps": "Compare results and identify the recipe that best represents Sweet Shop's intended flavour profile."
+}
