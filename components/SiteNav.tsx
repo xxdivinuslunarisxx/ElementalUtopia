@@ -3,13 +3,15 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/menu", label: "Menu" },
   { href: "/about", label: "About" },
   { href: "/logo", label: "Logo" },
-  { href: "/experiments", label: "Experiments" }
+  { href: "/experiments", label: "Experiments" },
+  { href: "/connect", label: "Connect"}
 ];
 
 export function SiteNav() {
@@ -22,6 +24,7 @@ export function SiteNav() {
         <Link className="brandLink" href="/" onClick={() => setOpen(false)}>
           Elemental Utopia
         </Link>
+        <ThemeToggle />
         <button
           className="menuToggle"
           type="button"
