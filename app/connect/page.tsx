@@ -48,7 +48,7 @@ export default function ConnectPage() {
             Questions, collaborations, or event enquiries are always welcome.
           </p>
 
-          <Link href="mailto:hello@elementalutopia.com">
+          <Link href="mailto:xxdivinuslunarisxx@gmail.com">
             Send an Email →
           </Link>
           <span>
