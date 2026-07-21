@@ -88,7 +88,7 @@
   color-scheme: dark;
 }
 
-/*#endregion*/
+
 
 :root {
   --background: #070706;
@@ -1468,7 +1468,7 @@ main {
   white-space: nowrap;
 }
   /*#endregion*/
-/* #region EXPERIMENTS */
+/*#region EXPERIMENTS */
 
 /* #region Exp-home */
 .experimentsHeader {
@@ -1631,7 +1631,221 @@ main {
 
 
 /* #endregion */
+/*#region booking */
 
+.bookPage {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  color: var(--text);
+}
+
+.bookEyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+/* Hero */
+
+.bookIntro h1 {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.bookIntro p {
+  max-width: 750px;
+}
+
+.bookHero {
+  width: 100%;
+  margin-bottom: 4rem;
+  text-align: left;
+}
+
+.bookHero h1 {
+  max-width: 900px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.bookHero p {
+  max-width: 750px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Sections */
+
+.bookSection {
+  margin-bottom: 3.5rem;
+}
+
+.bookSection h2 {
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.bookSection p {
+  max-width: 780px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+
+/* Lists */
+
+.bookSection ul {
+  max-width: 700px;
+  padding-left: 1.5rem;
+  color: var(--muted);
+  line-height: 2;
+}
+
+.bookSection li {
+  padding-left: 0.3rem;
+}
+
+
+/* Gallery */
+
+.bookGallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.bookGallery img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+
+/* Founder */
+
+.bookFounder {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.bookFounder img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.bookFounderText p {
+  max-width: 650px;
+}
+
+
+/* Cards */
+
+.bookCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.bookCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.bookCard p {
+  margin-bottom: 1rem;
+}
+
+.bookCard a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+
+/* CTA */
+
+.bookCTA {
+  margin-top: 4rem;
+  padding: 3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.bookCTA h2 {
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.bookCTA p {
+  max-width: 650px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+
+.bookCTA a {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.bookCTA a:hover {
+  transform: translateY(-3px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+  .bookPage {
+    padding: 3rem 1rem;
+  }
+
+  .bookGallery {
+    grid-template-columns: 1fr;
+  }
+
+  .bookFounder {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bookFounder img {
+    height: 400px;
+  }
+
+  .bookCTA {
+    padding: 2rem 1.5rem;
+  }
+
+}
+
+
+/*#endregion booking */
 /* #region CONNECT */
 
 .connectPage {
@@ -1784,7 +1998,212 @@ main {
   gap: clamp(28px, 5vw, 64px);
 }
 /*#endregion*/
+/*#region booking */
 
+.bookPage {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  color: var(--text);
+}
+
+
+/* Hero */
+
+.bookHero {
+  max-width: 850px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.bookHero h1 {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+}
+
+.bookHero p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.bookHeroLead {
+  font-size: 1.35rem !important;
+  color: var(--text) !important;
+}
+
+
+/* Sections */
+
+.bookSection {
+  margin-bottom: 3.5rem;
+}
+
+.bookSection h2 {
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.bookSection p {
+  max-width: 780px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1.2rem;
+}
+
+
+/* Lists */
+
+.bookSection ul {
+  max-width: 700px;
+  padding-left: 1.5rem;
+  color: var(--muted);
+  line-height: 2;
+}
+
+.bookSection li {
+  padding-left: 0.3rem;
+}
+
+
+/* Gallery */
+
+.bookGallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.bookGallery img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+
+
+/* Founder */
+
+.bookFounder {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.bookFounder img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.bookFounderText p {
+  max-width: 650px;
+}
+
+
+/* Cards */
+
+.bookCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-top: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.bookCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.bookCard p {
+  margin-bottom: 1rem;
+}
+
+.bookCard a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+
+/* CTA */
+
+.bookCTA {
+  margin-top: 4rem;
+  padding: 3rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.bookCTA h2 {
+  font-size: 2.2rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.bookCTA p {
+  max-width: 650px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+
+.bookCTA a {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+.bookCTA a:hover {
+  transform: translateY(-3px);
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+  .bookPage {
+    padding: 3rem 1rem;
+  }
+
+  .bookGallery {
+    grid-template-columns: 1fr;
+  }
+
+  .bookFounder {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bookFounder img {
+    height: 400px;
+  }
+
+  .bookCTA {
+    padding: 2rem 1.5rem;
+  }
+
+}
+
+
+/*#endregion booking */
 /*#endregion ===================================*/
 
 /*#region ============UTILITIES===========*/

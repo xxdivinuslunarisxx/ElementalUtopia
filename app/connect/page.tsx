@@ -60,29 +60,11 @@ export default function ConnectPage() {
 
         <article className="connectCard">
           <h2>📍 Upcoming Market</h2>
-
-          <p>
-            Come and visit Elemental Utopia at{" "}
-            <strong>Duck Pond Market</strong> on{" "}
-            <strong>1 August</strong>.
-            Specialty coffee, experiments, and conversations.
+          <p> 
+            We are currently preparing our mobile coffee setup and looking for
+            opportunities to bring specialty coffee to events, workplaces, and
+            communities across West London.
           </p>
-
-          <p>
-            Heron Square,
-            <br />
-            Hill St,
-            <br />
-            Richmond TW9 1EP
-          </p>
-
-          <Link
-            href="https://www.google.com/maps/search/?api=1&query=Heron+Square+Hill+St+Richmond+TW9+1EP"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Location →
-          </Link>
         </article>
 
         <article className="connectCard">

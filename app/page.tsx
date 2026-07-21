@@ -63,44 +63,41 @@ export default function Home() {
 
           <Link
             className="homeEvent"
-            href="https://www.google.com/maps/search/?api=1&query=Heron+Square+Hill+St+Richmond+TW9+1EP"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/booking"
           >
 
             <div className="homeEventContent">
 
               <p className="homeEventLabel">
-                Next Pop-Up
+                Now Booking
               </p>
 
               <h2>
-                Duck Pond Market
+                Specialty Coffee
                 <br />
-                Richmond
+                Pop-Ups
               </h2>
 
               <p className="homeEventDescription">
-                Join Elemental Utopia for specialty coffee,
+                Bring Elemental Utopia to your workplace,
+                event, or community. Specialty coffee,
                 experiments, and conversations.
               </p>
-
 
               <div className="homeEventDetails">
 
                 <span>
-                  1 August
+                  West London
                 </span>
 
                 <span>
-                  Heron Square, Richmond TW9 1EP
+                  Events & Private Bookings
                 </span>
 
               </div>
 
-
               <span className="homeEventLink">
-                Find Us →
+                Enquire →
               </span>
 
             </div>
