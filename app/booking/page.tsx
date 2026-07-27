@@ -293,6 +293,10 @@ return (
             <p>
                 Interested in creating a coffee experience for your workplace,
                 event, or community?
+                <br /><br />
+
+                Experiences start from £70. Share your requirements via email for a clear quote
+                
             </p>
 
             <Link href="mailto:xxdivinuslunarisxx@gmail.com">

@@ -96,9 +96,9 @@ export default function Home() {
 
               </div>
 
-              <span className="homeEventLink">
+              <p className="homeEventLink">
                 Enquire →
-              </span>
+              </p>
 
             </div>
 
