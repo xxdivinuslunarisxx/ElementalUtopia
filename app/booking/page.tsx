@@ -36,6 +36,8 @@ return (
 
             <h2>
                 The Elemental Utopia Experience
+                The Elemental Utopia Experience
+                The Elemental Utopia Experience
             </h2>
 
             <div className="bookGallery">
@@ -147,46 +149,6 @@ return (
 
 
         <section className="bookSection">
-
-            <h2>
-                Meet The Founder
-            </h2>
-
-            <article className="bookFounder">
-                <Image
-                    src="/images/Test trading/Behind stall.jpg"
-                    alt="Behind the Elemental Utopia coffee stall"
-                    width={1200}
-                    height={800}
-                />
-
-                <div className="bookFounderText">
-                    <p>
-                        Hi, I'm Jane, the founder of Elemental Utopia.
-                    </p>
-
-                    <p>
-                        Elemental Utopia began with a simple question: why does
-                        coffee have to be something people simply tolerate?
-                    </p>
-
-                    <p>
-                        I wanted to create an experience that showed people another
-                        side of coffee — one where sweetness, balance, and complexity
-                        are naturally present within the bean.
-                    </p>
-
-                    <p>
-                        Through learning, tasting, experimentation, and developing
-                        my own approach to preparation, I discovered how much a
-                        coffee can change when every detail is carefully considered.
-                    </p>
-                </div>
-            </article>
-        </section>
-
-
-        <section className="bookSection">
             <h2>
                 Built From The Ground Up
             </h2>
@@ -267,6 +229,11 @@ return (
                 coffee at that moment.
             </p>
 
+
+            {/* Shorten */}
+
+
+            
             <article className="bookCard">
                 <h3>
                     🧪 Experimentation & Discovery

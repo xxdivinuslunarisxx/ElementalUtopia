@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { LogoMark } from "@/components/LogoMark";
+import Image from "next/image";
+
 
 const focusAreas = [
   {
@@ -30,29 +32,72 @@ export default function Home() {
               Elemental Utopia
             </h1>
             <p className="heroSubtitle">
-              Specialty Coffee / Coffee Science / Extraction Focus
+              Mobile Specialty Coffee Experiences for Workplaces, Events & Communities
             </p>
-            <p>
-              A UK-based specialty coffee brand built around experimentation,
-              flavour profiling, and a scientific approach to espresso and
-              coffee extraction.
+            <p>           
+              Founder-operated specialty coffee pop-ups across West London,
+              combining coffee science, careful extraction and genuinely
+              great-tasting coffee.
             </p>
             <div className="buttonRow">
               <Link
                 className="button buttonPrimary"
-                href="/menu"
+                href="/booking"
               >
-                Explore Menu
+                Enquire About a Booking 
               </Link>
               <Link
                 className="button buttonSecondary"
-                href="/connect"
+                href="/menu"
               >
-                Connect
+                View Drinks
               </Link>
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="homeSection">
+
+        
+        <div className="sectionHeader founderHeader">
+          <h2>
+            Meet The Founder
+          </h2>
+        </div>
+
+
+        <article className="homeFounder">
+          <Image
+              src="/images/Test trading/Behind stall.jpg"
+              alt="Behind the Elemental Utopia coffee stall"
+              width={1200}
+              height={800}
+          />
+
+          <div className="homeFounderText">
+            <p>
+                Hi, I'm Jane, the founder of Elemental Utopia.
+            </p>
+
+            <p>
+                Elemental Utopia began with a simple question: why does
+                coffee have to be something people simply tolerate?
+            </p>
+
+            <p>
+                I wanted to create an experience that showed people another
+                side of coffee — one where sweetness, balance, and complexity
+                are naturally present within the bean.
+            </p>
+
+            <p>
+                Through learning, tasting, experimentation, and developing
+                my own approach to preparation, I discovered how much a
+                coffee can change when every detail is carefully considered.
+            </p>
+          </div>
+        </article>
       </section>
 
 

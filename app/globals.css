@@ -735,7 +735,6 @@ main {
 
 /*#endregion*/
 
-
 /*#region HOME - Hero*/
 
 .homebigbox {
@@ -778,7 +777,7 @@ main {
 
 /*#endregion*/
 
-
+/* #region Home Event full */
 /*#region HOME - Event Outer*/
 
 
@@ -1156,9 +1155,6 @@ main {
 }
 
 
-/*#endregion*/
-
-
 .homeEventLabel {
 
   font-size: .8rem;
@@ -1206,9 +1202,69 @@ main {
 
 
 /*#endregion*/
+/*#endregion  */
+
+/* #region Founder Section  */
+
+.founderHeader {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.founderHeader h2 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 0;
+
+}
+
+.homeFounder {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.homeFounder img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.homeFounderText {
+  max-width: 700px;
+}
+
+
+@media (max-width: 768px) {
+
+  .homeFounder {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .homeFounder img {
+    height: 350px;
+  }
+
+  .homeFounderText {
+    max-width: 100%;
+  }
+
+}
+
+
+/* #endregion  */
+
+
+
 
 
 /*#endregion*/
+
+
+
+
 /*#region MENU*/
 
 
