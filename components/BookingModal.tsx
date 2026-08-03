@@ -70,15 +70,14 @@ export default function BookingModal({ onClose }: BookingModalProps) {
             });
 
 
-            if (response.ok) {
+            const result = await response.json();
 
-                setSubmitted(true);
-
-            } else {
-
-                alert("Something went wrong. Please try again.");
-
-            }
+        if (response.ok) {
+            setSubmitted(true);
+        } else {
+            console.error(result);
+            alert(result.error || JSON.stringify(result));
+        }
 
 
         } catch (error) {
