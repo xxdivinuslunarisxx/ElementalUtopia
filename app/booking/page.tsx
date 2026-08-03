@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CopyEmail } from "@/components/CopyEmail";
 import Link from "next/link";
+import { BookingButton } from "@/components/BookingButton";
 
 
 export default function BookingPage() {
@@ -28,68 +29,142 @@ return (
 
         </section>
 
-        <section>
-            
-             <h3>
-                Suitable For
-            </h3>
+        <section className="bookingInfo">
 
-            <ul>
+            <div className="infoBlock">
 
-                <li>
-                    Workplace coffee mornings
-                </li>
+                <h3>
+                    Suitable For
+                </h3>
 
-                <li>
-                    Corporate events
-                </li>
+                <ul className="featureList">
 
-                <li>
-                    Community gatherings
-                </li>
+                    <li>Workplace coffee mornings</li>
+                    <li>Corporate events</li>
+                    <li>Community gatherings</li>
+                    <li>Charity fundraisers</li>
+                    <li>Creative workshops</li>
+                    <li>Private celebrations</li>
 
-                <li>
-                    Charity fundraisers
-                </li>
+                </ul>
 
-                <li>
-                    Creative workshops
-                </li>
+            </div>
 
-                <li>
-                    Private celebrations
-                </li>
 
-            </ul>
+            <div className="infoBlock">
 
-            <h3>
-                What's included?
-            </h3>
+                <h3>
+                    What's Included?
+                </h3>
 
-            <ul>
-                <li>
-                    complete mobile coffee station
-                </li>
-                <li>
-                    professional espresso equipment
-                </li>
-                <li>
-                    speciality coffee beans
-                </li>
-                <li>
-                    milk and oat milk
-                </li>
-                <li>
-                    compostable cups and lids
-                </li>
-                <li>
-                    setup and pack-down
-                </li>
-                    founder-operated service
-                <li>
-                    public liability insurance
-                </li>
-            </ul>
+                <ul className="featureList">
+
+                    <li>Complete mobile coffee station</li>
+                    <li>Professional espresso equipment</li>
+                    <li>Speciality coffee beans</li>
+                    <li>Milk and oat milk options</li>
+                    <li>Compostable cups and lids</li>
+                    <li>Setup and pack-down</li>
+                    <li>Founder-operated service</li>
+                    <li>Public liability insurance</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div className="infoBlock">
+
+                <h3>
+                    How Booking Works
+                </h3>
+
+
+                <div className="bookingSteps">
+
+
+                    <div className="step">
+
+                        <span>1</span>
+
+                        <div>
+                            <strong>
+                                Send an enquiry
+                            </strong>
+
+                            <p>
+                                Tell us about your event, location, and requirements.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div className="step">
+
+                        <span>2</span>
+
+                        <div>
+                            <strong>
+                                Receive your quote
+                            </strong>
+
+                            <p>
+                                We'll review the details and send a personalised quote.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div className="step">
+
+                        <span>3</span>
+
+                        <div>
+                            <strong>
+                                Confirm your booking
+                            </strong>
+
+                            <p>
+                                Once everything is agreed, we'll reserve your date.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+
+                    <div className="step">
+
+                        <span>4</span>
+
+                        <div>
+                            <strong>
+                                Enjoy your event
+                            </strong>
+
+                            <p>
+                                We arrive, set up, serve great coffee, and handle pack-down.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <BookingButton />
+
+            <br />
+            <br />
+
         </section>
 
         <section className="bookSection">
@@ -139,7 +214,11 @@ return (
                 </li>
 
                 <li>
-                    Travel - West London (Further by request)
+                    Service Area - West London and surrounding London areas
+                </li>
+
+                <li>
+                    Travel - Further locations considered by request
                 </li>
 
                 <li>
@@ -240,9 +319,7 @@ return (
                 
             </p>
 
-            <Link href="mailto:xxdivinuslunarisxx@gmail.com">
-                Get In Touch →
-            </Link>
+            <BookingButton/>   
 
             <br />
             <br />

@@ -1,30 +1,48 @@
 /*#region ========GLOBAL CORE======== */
 
 /*#region VARIABLES*/
-
 :root {
-  --background: #070706;
-  --surface: #11110f;
-  --surface-strong: #181713;
+    --background: #070706;
+    --surface: #11110f;
+    --surface-strong: #181713;
 
-  --text: #ffffff;
-  --muted: #c8c0af;
+    --text: #ffffff;
+    --muted: #c8c0af;
 
-  --border: rgba(248, 237, 248, 0.22);
+    --border: rgba(248,237,248,0.22);
 
-  --accent: #870b30;
-  --accent-red: #ee2f24;
-  --accent-blue: #1fa8f5;
+    --accent: #870b30;
+    --accent-red: #ee2f24;
+    --accent-blue: #1fa8f5;
 
-  --shadow: 0 18px 60px rgba(61, 18, 18, 0.34);
+    --shadow: 0 18px 60px rgba(61,18,18,0.34);
 
-  color-scheme: dark;
+    color-scheme: dark;
 }
 
 
 @media (prefers-color-scheme: light) {
 
-  :root {
+    :root {
+
+        --background: #e8dfcf;
+        --surface: #f3eadb;
+        --surface-strong: #dfd2bc;
+
+        --text: #211a14;
+        --muted: #6b6255;
+
+        --border: rgba(33,26,20,0.18);
+
+        --shadow: 0 18px 50px rgba(50,35,20,0.18);
+
+        color-scheme: light;
+    }
+
+}
+
+
+.light {
 
     --background: #e8dfcf;
     --surface: #f3eadb;
@@ -35,112 +53,28 @@
 
     --border: rgba(33,26,20,0.18);
 
-    --accent: #870b30;
-    --accent-red: #c93b2c;
-    --accent-blue: #1879b5;
-
     --shadow: 0 18px 50px rgba(50,35,20,0.18);
 
     color-scheme: light;
-  }
 
-}
-
-
-.light {
-
-  --background: #e8dfcf;
-  --surface: #f3eadb;
-  --surface-strong: #dfd2bc;
-
-  --text: #211a14;
-  --muted: #6b6255;
-
-  --border: rgba(33,26,20,0.18);
-
-  --accent: #870b30;
-  --accent-red: #c93b2c;
-  --accent-blue: #1879b5;
-
-  --shadow: 0 18px 50px rgba(50,35,20,0.18);
-
-  color-scheme: light;
 }
 
 
 .dark {
 
-  --background: #070706;
-  --surface: #11110f;
-  --surface-strong: #181713;
+    --background: #070706;
+    --surface: #11110f;
+    --surface-strong: #181713;
 
-  --text: #ffffff;
-  --muted: #c8c0af;
+    --text: #ffffff;
+    --muted: #c8c0af;
 
-  --border: rgba(248,237,248,0.22);
+    --border: rgba(248,237,248,0.22);
 
-  --accent: #870b30;
-  --accent-red: #ee2f24;
-  --accent-blue: #1fa8f5;
+    --shadow: 0 18px 60px rgba(61,18,18,0.34);
 
-  --shadow: 0 18px 60px rgba(61,18,18,0.34);
+    color-scheme: dark;
 
-  color-scheme: dark;
-}
-
-
-
-
-/* Manual override */
-.light {
-  --background: #e8dfcf;
-  --surface: #f3eadb;
-  --surface-strong: #dfd2bc;
-  --text: #211a14;
-  --muted: #6b6255;
-  --specialtext:#ffff;
-  --border: rgba(33, 26, 20, 0.18);
-  --accent: #870b30;
-  --accent-red:#c93b2c;
-  --accent-blue: #1879b5;
-  --shadow: 0 18px 60px rgba(50, 35, 20, 0.18);
-}
-
-
-
-/* Manual light override */
-/* Manual + system light mode */
-/* System preference */
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #e8dfcf;
-    --surface: #f3eadb;
-    --surface-strong: #dfd2bc;
-    --text: #211a14;
-    --specialtext:#ffff;
-    --muted: #6b6255;
-    --border: rgba(33, 26, 20, 0.18);
-    --accent: #870b30;
-    --accent-red:#c93b2c;
-    --accent-blue: #1879b5;
-    --shadow: 0 18px 60px rgba(50, 35, 20, 0.18);
-  }
-
-  .dark {
-  --background: #070706;
-  --surface: #11110f;
-  --surface-strong: #181713;
-  --text: #ffffff;
-  --specialtext: #ffff;
-  --muted: #c8c0af;
-  --border: rgba(248, 237, 248, 0.22);
-  --accent: #870b30;
-  --accent-red: #ee2f24;
-  --accent-blue: #1fa8f5;
-  --shadow: 0 18px 60px rgba(61, 18, 18, 0.34);
-  color-scheme: dark;
-}
 }
 
 
@@ -499,6 +433,336 @@ main {
 /*#region NAVIGATION*/
 
 /*#endregion*/
+
+/* #region Booking Modal */
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 2rem;
+
+    background: rgba(0, 0, 0, 0.7);
+
+    z-index: 9999;
+
+    animation: fadeIn .2s ease;
+}
+
+
+.bookingModal {
+
+    position: relative;
+
+    width: min(650px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 2.5rem;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+
+    animation: modalOpen .25s ease;
+
+}
+
+
+.bookingModal h2 {
+
+    margin: 0;
+
+    font-size: 2rem;
+
+}
+
+
+.bookingModal p {
+
+    margin: .75rem 0 2rem;
+
+    color: var(--muted);
+
+    line-height: 1.6;
+
+}
+
+
+/* Close button */
+
+.modalClose {
+
+    position: absolute;
+
+    top: 1rem;
+    right: 1rem;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--surface-strong);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    font-size: 1.4rem;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.modalClose:hover {
+
+    background: var(--accent);
+
+    color: white;
+
+}
+
+
+/* Form */
+
+.bookingModal form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+}
+
+
+.bookingModal label {
+
+    font-weight: 600;
+
+}
+
+
+.bookingModal input,
+.bookingModal textarea,
+.bookingModal select {
+
+    width: 100%;
+
+    padding: .9rem 1rem;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    font: inherit;
+
+    transition: .2s;
+
+}
+
+
+.bookingModal textarea {
+
+    min-height: 140px;
+
+    resize: vertical;
+
+}
+
+
+.bookingModal input::placeholder,
+.bookingModal textarea::placeholder {
+
+    color: var(--muted);
+
+}
+
+
+.bookingModal input:focus,
+.bookingModal textarea:focus,
+.bookingModal select:focus {
+
+    outline: none;
+
+    border-color: var(--accent);
+
+    box-shadow: 0 0 0 3px rgba(135,11,48,.25);
+
+}
+
+
+/* Submit button */
+
+.bookingSubmit {
+
+    align-self: flex-start;
+
+    margin-top: .5rem;
+
+    padding: .95rem 1.8rem;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: var(--accent);
+
+    color: white;
+
+    font: inherit;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+
+.bookingSubmit:hover {
+
+    transform: translateY(-2px);
+
+    filter: brightness(1.08);
+
+}
+
+
+.bookingSubmit:active {
+
+    transform: translateY(0);
+
+}
+
+
+/* Animations */
+
+@keyframes modalOpen {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(15px) scale(.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+    }
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+    }
+
+    to {
+
+        opacity: 1;
+
+    }
+
+}
+
+/* Sucess!!  */
+.successModal{
+    background:linear-gradient(135deg,#27573c,#43845e);
+    color:white;
+    text-align:center;
+}
+
+.successModal p{
+    color:rgba(255,255,255,.9);
+}
+
+.successIcon{
+    font-size:4rem;
+    margin-bottom:1rem;
+}
+
+/* #endregion */
+
+/* #region Booking button */
+.bookingButton {
+
+    padding: 0.9rem 1.8rem;
+
+    border-radius: 999px;
+
+    border: none;
+
+    background: var(--accent);
+
+    color: white;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        opacity .2s ease,
+        box-shadow .2s ease;
+
+    box-shadow:
+        0 8px 25px rgba(135,11,48,0.25);
+
+}
+
+
+.bookingButton:hover {
+
+    transform: translateY(-2px);
+
+    opacity: 0.9;
+
+}
+
+
+.bookingButton:active {
+
+    transform: translateY(0);
+
+}
+
+/* #endregion */
 
 /*#region BUTTONS*/
 .buttonRow {
@@ -1262,9 +1526,6 @@ main {
 
 /*#endregion*/
 
-
-
-
 /*#region MENU*/
 
 
@@ -1673,219 +1934,479 @@ main {
 
 
 /* #endregion */
+
 /*#region booking */
 
+
 .bookPage {
-  max-width: 1050px;
-  margin: 0 auto;
-  padding: 4rem 1.5rem;
-  color: var(--text);
+
+    max-width:1050px;
+
+    margin:0 auto;
+
+    padding:4rem 1.5rem;
+
+    color:var(--text);
+
 }
 
-.bookEyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-size: 0.8rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
+
 /* Hero */
 
-.bookIntro h1 {
-  font-size: clamp(2.8rem, 5vw, 4.5rem);
-  line-height: 1.05;
-  letter-spacing: -0.05em;
-  margin-bottom: 1.5rem;
+.bookEyebrow {
+
+    text-transform:uppercase;
+
+    letter-spacing:0.15em;
+
+    font-size:0.8rem;
+
+    color:var(--accent);
+
+    margin-bottom:1rem;
+
 }
 
-.bookIntro p {
-  max-width: 750px;
-}
 
 .bookHero {
-  width: 100%;
-  margin-bottom: 4rem;
-  text-align: left;
+
+    width:100%;
+
+    margin-bottom:4rem;
+
 }
+
 
 .bookHero h1 {
-  max-width: 900px;
-  margin-left: 0;
-  margin-right: 0;
+
+    max-width:900px;
+
+    font-size:clamp(2.8rem,5vw,4.5rem);
+
+    line-height:1.05;
+
+    letter-spacing:-0.05em;
+
+    margin-bottom:1.5rem;
+
 }
 
+
 .bookHero p {
-  max-width: 750px;
-  margin-left: 0;
-  margin-right: 0;
+
+    max-width:750px;
+
+    color:var(--muted);
+
+    line-height:1.8;
+
 }
+
+
 
 /* Sections */
 
 .bookSection {
-  margin-bottom: 3.5rem;
+
+    margin-bottom:3.5rem;
+
 }
+
 
 .bookSection h2 {
-  font-size: 2.2rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 1.25rem;
+
+    font-size:2.2rem;
+
+    letter-spacing:-0.03em;
+
+    margin-bottom:1.25rem;
+
 }
+
 
 .bookSection p {
-  max-width: 780px;
-  line-height: 1.8;
-  color: var(--muted);
-  margin-bottom: 1.2rem;
+
+    max-width:780px;
+
+    line-height:1.8;
+
+    color:var(--muted);
+
+    margin-bottom:1.2rem;
+
 }
 
 
-/* Lists */
 
-.bookSection ul {
-  max-width: 700px;
-  padding-left: 1.5rem;
-  color: var(--muted);
-  line-height: 2;
-}
-
-.bookSection li {
-  padding-left: 0.3rem;
-}
-
-
-/* Gallery */
+/* Images / Gallery */
 
 .bookGallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  margin: 2rem 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:1.25rem;
+
+    margin:2rem 0;
+
 }
 
+
 .bookGallery img {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-  border-radius: 22px;
+
+    width:100%;
+
+    height:330px;
+
+    object-fit:cover;
+
+    border-radius:22px;
+
 }
+
 
 
 /* Founder */
 
 .bookFounder {
-  display: grid;
-  grid-template-columns: 420px 1fr;
-  gap: 3rem;
-  align-items: center;
+
+    display:grid;
+
+    grid-template-columns:420px 1fr;
+
+    gap:3rem;
+
+    align-items:center;
+
 }
+
 
 .bookFounder img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-  border-radius: 24px;
+
+    width:100%;
+
+    height:500px;
+
+    object-fit:cover;
+
+    border-radius:24px;
+
 }
+
 
 .bookFounderText p {
-  max-width: 650px;
+
+    max-width:650px;
+
 }
 
 
-/* Cards */
+
+/* Booking Information Cards */
+
+
+.bookingInfo {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:2rem;
+
+}
+
+
+
+.infoBlock {
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:2rem;
+
+    box-shadow:var(--shadow);
+
+}
+
+
+
+.infoBlock h3 {
+
+    font-size:1.6rem;
+
+    margin-bottom:1.5rem;
+
+    letter-spacing:-0.02em;
+
+}
+
+
+
+/* Included / Suitable lists */
+
+
+.featureList {
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:12px 30px;
+
+    padding-left:1.2rem;
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+}
+
+
+.featureList li {
+
+    padding-left:.3rem;
+
+}
+
+
+
+/* Booking Steps */
+
+
+.bookingSteps {
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:1.5rem;
+
+}
+
+
+
+.step {
+
+    display:flex;
+
+    gap:1rem;
+
+    align-items:flex-start;
+
+}
+
+
+
+.step span {
+
+    flex-shrink:0;
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--accent);
+
+    color:white;
+
+    font-weight:700;
+
+}
+
+
+
+.step strong {
+
+    display:block;
+
+    font-size:1.1rem;
+
+    margin-bottom:.3rem;
+
+}
+
+
+
+.step p {
+
+    margin:0;
+
+    color:var(--muted);
+
+    line-height:1.6;
+
+}
+
+
+
+/* General Cards */
+
 
 .bookCard {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 2rem;
-  margin-top: 2rem;
-  box-shadow: var(--shadow);
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:2rem;
+
+    margin-top:2rem;
+
+    box-shadow:var(--shadow);
+
 }
+
 
 .bookCard h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+
+    font-size:1.5rem;
+
+    margin-bottom:1rem;
+
 }
 
-.bookCard p {
-  margin-bottom: 1rem;
-}
-
-.bookCard a {
-  color: var(--accent-blue);
-  text-decoration: none;
-}
 
 
 /* CTA */
 
+
 .bookCTA {
-  margin-top: 4rem;
-  padding: 3rem;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 28px;
-  box-shadow: var(--shadow);
+
+    margin-top:4rem;
+
+    padding:3rem;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    border-radius:28px;
+
+    box-shadow:var(--shadow);
+
 }
+
 
 .bookCTA h2 {
-  font-size: 2.2rem;
-  letter-spacing: -0.03em;
-  margin-bottom: 1rem;
+
+    font-size:2.2rem;
+
+    letter-spacing:-0.03em;
+
+    margin-bottom:1rem;
+
 }
+
 
 .bookCTA p {
-  max-width: 650px;
-  color: var(--muted);
-  line-height: 1.7;
-  margin-bottom: 2rem;
+
+    max-width:650px;
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+    margin-bottom:2rem;
+
 }
 
-
-.bookCTA a {
-  display: inline-block;
-  padding: 0.9rem 2rem;
-  border-radius: 999px;
-  background: var(--accent);
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  transition: transform 0.2s ease;
-}
-
-.bookCTA a:hover {
-  transform: translateY(-3px);
-}
 
 
 /* Mobile */
 
-@media (max-width: 800px) {
 
-  .bookPage {
-    padding: 3rem 1rem;
-  }
+@media(max-width:800px) {
 
-  .bookGallery {
-    grid-template-columns: 1fr;
-  }
 
-  .bookFounder {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+    .bookPage {
 
-  .bookFounder img {
-    height: 400px;
-  }
+        padding:3rem 1rem;
 
-  .bookCTA {
-    padding: 2rem 1.5rem;
-  }
+    }
+
+
+    .bookGallery {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .bookFounder {
+
+        grid-template-columns:1fr;
+
+        gap:2rem;
+
+    }
+
+
+    .bookFounder img {
+
+        height:400px;
+
+    }
+
+
+    .featureList {
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .bookCTA {
+
+        padding:2rem 1.5rem;
+
+    }
+
+
+    .infoBlock {
+
+        padding:1.5rem;
+
+    }
+
 
 }
 
+
+.experienceSection {
+    margin-top:5rem;
+}
+
+
+.experienceSection h2 {
+    margin-bottom:1rem;
+}
+
+
+.experienceIntro {
+    font-size:1.2rem;
+    max-width:700px;
+    color:var(--muted);
+    margin-bottom:2.5rem;
+}
+
+
+.experienceSection p {
+    max-width:800px;
+}
 
 /*#endregion booking */
 /* #region CONNECT */
