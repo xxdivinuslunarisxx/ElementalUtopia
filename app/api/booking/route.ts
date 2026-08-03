@@ -420,22 +420,19 @@ export async function POST(request: Request) {
 
     } catch (error) {
 
-
         console.error(error);
 
-
-
         return Response.json(
-
             {
-                success:false
+                success: false,
+                error: error instanceof Error ? error.message : String(error),
+                details: error,
             },
-
             {
-                status:500
+                status: 500,
             }
-
         );
+        
 
 
     }
