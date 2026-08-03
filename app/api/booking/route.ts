@@ -1,7 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 
 function escapeHtml(text: string = "") {
 
@@ -19,7 +17,33 @@ export async function POST(request: Request) {
 
     try {
 
+
+        if (!process.env.RESEND_API_KEY) {
+
+            console.error("Missing RESEND_API_KEY");
+
+            return Response.json(
+                {
+                    success:false,
+                    error:"Email service unavailable"
+                },
+                {
+                    status:500
+                }
+            );
+
+        }
+
+
+
+        const resend = new Resend(
+            process.env.RESEND_API_KEY
+        );
+
+
+
         const body = await request.json();
+
 
 
         const name = escapeHtml(body.name);
@@ -31,9 +55,12 @@ export async function POST(request: Request) {
 
 
 
+
+
         // ==============================
         // ADMIN EMAIL
         // ==============================
+
 
         await resend.emails.send({
 
@@ -41,7 +68,9 @@ export async function POST(request: Request) {
 
             to: "info@elementalutopia.com",
 
-            subject: `New Booking Enquiry - ${body.name}`,
+            replyTo: body.email,
+
+            subject: `New Booking Enquiry - ${name}`,
 
 
             html: `
@@ -79,7 +108,6 @@ export async function POST(request: Request) {
                     </tr>
 
 
-
                     <tr>
                         <td>
                             <strong>Email</strong>
@@ -89,7 +117,6 @@ export async function POST(request: Request) {
                             ${email}
                         </td>
                     </tr>
-
 
 
                     <tr>
@@ -103,7 +130,6 @@ export async function POST(request: Request) {
                     </tr>
 
 
-
                     <tr>
                         <td>
                             <strong>Location</strong>
@@ -113,7 +139,6 @@ export async function POST(request: Request) {
                             ${location}
                         </td>
                     </tr>
-
 
 
                     <tr>
@@ -162,6 +187,8 @@ export async function POST(request: Request) {
 
 
 
+
+
         // ==============================
         // CUSTOMER CONFIRMATION EMAIL
         // ==============================
@@ -172,6 +199,8 @@ export async function POST(request: Request) {
             from: "Elemental Utopia <info@elementalutopia.com>",
 
             to: body.email,
+
+            replyTo: "info@elementalutopia.com",
 
             subject: "We've received your Elemental Utopia booking enquiry",
 
@@ -379,6 +408,7 @@ export async function POST(request: Request) {
 
 
 
+
         return Response.json({
 
             success:true
@@ -387,10 +417,12 @@ export async function POST(request: Request) {
 
 
 
+
     } catch (error) {
 
 
         console.error(error);
+
 
 
         return Response.json(
@@ -404,6 +436,7 @@ export async function POST(request: Request) {
             }
 
         );
+
 
     }
 
