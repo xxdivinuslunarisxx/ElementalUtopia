@@ -13,6 +13,7 @@ const navItems = [
   { href: "/experiments", label: "Experiments" },
   { href: "/connect", label: "Connect"},
   { href: "/booking", label: "Booking"},
+  { href: "/services", label: "Services"}
 ];
 
 export function SiteNav() {

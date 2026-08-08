@@ -152,7 +152,94 @@ export default function Home() {
         </div>
 
       </section>
+      {/* Services */}
+      <section className="homeSection">
 
+        <div className="contentBand servicesPreview">
+
+          <div className="sectionHeader">
+
+            <span className="homeSectionEyebrow">
+              What We Do
+            </span>
+
+            <h2>
+              Specialty Coffee, Wherever People Gather
+            </h2>
+
+            <p>
+              Elemental Utopia brings a mobile specialty coffee experience
+              to workplaces, events, communities and pop-ups across West
+              London — and we're happy to travel further for the right event.
+            </p>
+
+          </div>
+
+          <div className="servicesPreviewGrid">
+
+            <article className="servicesPreviewCard">
+              <h3>
+                Workplace Coffee
+              </h3>
+
+              <p>
+                Specialty coffee brought directly to your workplace for
+                team mornings, staff events, client hospitality and more.
+              </p>
+            </article>
+            <br />
+
+            <article className="servicesPreviewCard">
+              <h3>
+                Events & Hospitality
+              </h3>
+
+              <p>
+                A mobile coffee service for launches, networking events,
+                corporate gatherings and special occasions.
+              </p>
+            </article>
+            <br />
+
+            <article className="servicesPreviewCard">
+              <h3>
+                Private & Community Events
+              </h3>
+
+              <p>
+                Thoughtful specialty coffee for local gatherings, private
+                celebrations and community events.
+              </p>
+            </article>
+            <br />
+
+            <article className="servicesPreviewCard">
+              <h3>
+                Markets & Pop-Ups
+              </h3>
+
+              <p>
+                A compact mobile setup designed to bring specialty coffee
+                to markets, public spaces and pop-up events.
+              </p>
+            </article>
+          <br />
+          </div>
+
+          <div className="servicesPreviewAction">
+
+            <Link
+              href="/services"
+              className="servicesPreviewButton"
+            >
+              Explore Our Services →
+            </Link>
+
+          </div>
+
+        </div>
+
+      </section>
       {/* Brand Philosophy */}
       <section className="homeSection">
         <div className="contentBand">
