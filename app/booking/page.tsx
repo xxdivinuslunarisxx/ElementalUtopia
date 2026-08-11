@@ -2,7 +2,19 @@ import Image from "next/image";
 import { CopyEmail } from "@/components/CopyEmail";
 import Link from "next/link";
 import { BookingButton } from "@/components/BookingButton";
+import { Metadata } from "next";
 
+
+export const metadata: Metadata = {
+  title: "Book a Specialty Coffee Pop-Up | Elemental Utopia",
+
+  description:
+    "Book Elemental Utopia for workplaces, corporate events, private functions and community pop-ups across West London.",
+
+  alternates: {
+    canonical: "https://elementalutopia.com/booking",
+  },
+};
 
 export default function BookingPage() {
 

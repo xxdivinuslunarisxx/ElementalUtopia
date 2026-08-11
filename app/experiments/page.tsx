@@ -1,5 +1,17 @@
 import { getExperiments } from "@/lib/experiments/getExperiments";
 import ExperimentCard from "@/components/ExperimentCard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Coffee Experiments & Research | Elemental Utopia",
+
+  description:
+    "Explore our coffee experiments investigating espresso extraction, brew ratios, temperature, pressure and flavour.",
+
+  alternates: {
+    canonical: "https://elementalutopia.com/experiments",
+  },
+};
 
 export default function ExperimentsPage() {
   const experiments = getExperiments();

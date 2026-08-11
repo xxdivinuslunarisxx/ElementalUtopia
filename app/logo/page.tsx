@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import { LogoMark } from "@/components/LogoMark";
 
 export const metadata: Metadata = {
-  title: "Logo",
+  title: "Our Logo | Elemental Utopia",
+
   description:
-    "The meaning behind the Elemental Utopia logo: earth, water, air, fire, and the sun."
+    "Discover the symbolism behind the Elemental Utopia logo and how the four classical elements shape our philosophy.",
+
+  alternates: {
+    canonical: "https://elementalutopia.com/logo",
+  },
 };
 
 const elements = [

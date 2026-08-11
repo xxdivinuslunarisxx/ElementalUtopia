@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Menu",
+  title: "Coffee Menu | Elemental Utopia",
+
   description:
-    "Elemental Utopia coffee menu with hot drinks, iced drinks, milk options, and allergen information."
+    "Explore the specialty coffee menu served at Elemental Utopia pop-ups, including espresso, milk drinks and seasonal offerings.",
+
+  alternates: {
+    canonical: "https://elementalutopia.com/menu",
+  },
 };
 
 const hotDrinks = ["Espresso", "Flat White", "Latte", "Cappuccino", "Americano"];

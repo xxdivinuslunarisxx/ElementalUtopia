@@ -2,9 +2,14 @@ import type { Metadata } from "next";
 import { LogoMark } from "@/components/LogoMark";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Elemental Utopia | Founder Story",
+
   description:
-    "The story behind Elemental Utopia, its portable coffee setup, and its science-led approach to specialty coffee."
+    "Learn how Elemental Utopia began and discover the science, experimentation and passion behind our mobile specialty coffee service.",
+
+  alternates: {
+    canonical: "https://elementalutopia.com/about",
+  },
 };
 
 export default function AboutPage() {

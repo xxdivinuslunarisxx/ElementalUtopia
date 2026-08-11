@@ -1,7 +1,27 @@
 import Link from "next/link";
 import { LogoMark } from "@/components/LogoMark";
 import Image from "next/image";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Mobile Specialty Coffee Pop-Ups West London | Elemental Utopia",
+
+  description:
+    "Founder-operated specialty coffee pop-ups across West London for workplaces, events and communities. Science-led coffee, careful extraction and genuinely great-tasting coffee.",
+
+  alternates: {
+    canonical: "https://elementalutopia.com",
+  },
+
+  openGraph: {
+    title: "Elemental Utopia",
+    description:
+      "Mobile specialty coffee experiences across West London.",
+    url: "https://elementalutopia.com",
+    siteName: "Elemental Utopia",
+    type: "website",
+  },
+};
 
 const focusAreas = [
   {
