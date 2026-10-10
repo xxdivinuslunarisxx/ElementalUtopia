@@ -42,7 +42,7 @@ export default function ExperimentsPage() {
 
         {completed.length > 0 && (
           <section className="experimentSection">
-            <h2>Completed Experiments</h2>
+            <h2>Completed</h2>
 
             <div className="experimentGrid">
               {completed.map((experiment) => (
@@ -72,7 +72,7 @@ export default function ExperimentsPage() {
 
         {planned.length > 0 && (
           <section className="experimentSection">
-            <h2>Planned Experiments</h2>
+            <h2>Planned</h2>
 
             <div className="experimentGrid">
               {planned.map((experiment) => (

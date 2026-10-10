@@ -1,12 +1,47 @@
-import { getExperiment } from "../../../lib/experiments/getExperiments";
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import {
+  getExperiment,
+  hasContent,
+  statusClassName,
+  statusLabel,
+} from "../../../lib/experiments/getExperiments";
 
-export default async function ExperimentPage({
-  params,
-}: {
+type Props = {
   params: Promise<{ slug: string }>;
-}) {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const experiment = getExperiment(slug);
+
+  if (!experiment) {
+    return { title: "Experiment Not Found", robots: { index: false } };
+  }
+
+  return {
+    title: experiment.title,
+    description: experiment.summary,
+    alternates: {
+      canonical: `https://elementalutopia.com/experiments/${experiment.id}`,
+    },
+  };
+}
+
+function formatLabel(key: string) {
+  const text = key.replaceAll("_", " ");
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+const COFFEE_FIELDS = [
+  ["name", "Coffee"],
+  ["dose", "Dose"],
+  ["yield", "Yield"],
+  ["ratio", "Ratio"],
+] as const;
+
+export default async function ExperimentPage({ params }: Props) {
   const { slug } = await params;
 
   const experiment = getExperiment(slug);
@@ -15,147 +50,125 @@ export default async function ExperimentPage({
     notFound();
   }
 
+  const isPlanned = experiment.status === "Planned";
+
+  const coffeeRows = COFFEE_FIELDS.filter(([key]) =>
+    hasContent(experiment.coffee?.[key])
+  );
+
   return (
     <main className="experimentPage">
-
       <header className="experimentHeader">
         <div className="experimentBadges">
-          <span className="experimentType">
-            {experiment.type}
-          </span>
+          <span className="experimentType">{experiment.type}</span>
 
-          <span className="experimentStatus">
-            {experiment.status}
+          <span className={`experimentStatus ${statusClassName(experiment.status)}`}>
+            {statusLabel(experiment.status)}
           </span>
         </div>
 
         <h1>{experiment.title}</h1>
 
-        <p>
-          {experiment.summary}
-        </p>
+        <p>{experiment.summary}</p>
       </header>
 
+      {hasContent(experiment.question) && (
+        <section>
+          <h2>Question</h2>
+          <p>{experiment.question}</p>
+        </section>
+      )}
 
-      <section>
-        <h2>Question</h2>
-        <p>{experiment.question}</p>
-      </section>
-
-
-      {experiment.hypothesis && (
+      {hasContent(experiment.hypothesis) && (
         <section>
           <h2>Hypothesis</h2>
           <p>{experiment.hypothesis}</p>
         </section>
       )}
 
-
-      {experiment.coffee && (
+      {isPlanned ? (
         <section>
-          <h2>Coffee</h2>
-
-          {experiment.coffee.name && (
-            <p>
-              Coffee: {experiment.coffee.name}
-            </p>
+          <p className="experimentPlannedNote">
+            This experiment is planned. The method, results and conclusions
+            will be added once it has been run.
+          </p>
+        </section>
+      ) : (
+        <>
+          {coffeeRows.length > 0 && (
+            <section>
+              <h2>Coffee</h2>
+              {coffeeRows.map(([key, label]) => (
+                <p key={key}>
+                  {label}: {experiment.coffee?.[key]}
+                </p>
+              ))}
+            </section>
           )}
 
-          {experiment.coffee.dose && (
-            <p>
-              Dose: {experiment.coffee.dose}
-            </p>
+          {experiment.method && (
+            <section>
+              <h2>Method</h2>
+
+              {Object.entries(experiment.method).map(([name, test]) => {
+                const details = Object.entries(test).filter(
+                  ([key, value]) => key !== "notes" && hasContent(value)
+                );
+
+                return (
+                  <article key={name}>
+                    <h3>{name.replaceAll("_", " ")}</h3>
+
+                    {details.map(([key, value]) => (
+                      <p key={key}>
+                        {formatLabel(key)}: {String(value)}
+                      </p>
+                    ))}
+
+                    {hasContent(test.notes) && <p>{test.notes}</p>}
+                  </article>
+                );
+              })}
+            </section>
           )}
 
-          {experiment.coffee.yield && (
-            <p>
-              Yield: {experiment.coffee.yield}
-            </p>
+          {hasContent(experiment.results) && (
+            <section>
+              <h2>Results</h2>
+              <p>{experiment.results}</p>
+            </section>
           )}
 
-          {experiment.coffee.ratio && (
-            <p>
-              Ratio: {experiment.coffee.ratio}
-            </p>
-          )}
-        </section>
-      )}
-
-
-      {experiment.method && (
-        <section>
-          <h2>Method</h2>
-
-          {Object.entries(experiment.method).map(
-            ([name, test]) => (
-              <article key={name}>
-                <h3>
-                  {name.replaceAll("_", " ")}
-                </h3>
-
-                {test.time && (
-                  <p>
-                    Time: {test.time}
-                  </p>
-                )}
-
-                {test.notes && (
-                  <p>
-                    {test.notes}
-                  </p>
-                )}
-              </article>
-            )
+          {hasContent(experiment.conclusion) && (
+            <section>
+              <h2>Conclusion</h2>
+              <p>{experiment.conclusion}</p>
+            </section>
           )}
 
-        </section>
+          {experiment.limitations && experiment.limitations.length > 0 && (
+            <section>
+              <h2>Limitations</h2>
+              <ul>
+                {experiment.limitations.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {hasContent(experiment.next_steps) && (
+            <section>
+              <h2>Next Steps</h2>
+              <p>{experiment.next_steps}</p>
+            </section>
+          )}
+        </>
       )}
 
-
-      {experiment.results && (
-        <section>
-          <h2>Results</h2>
-          <p>{experiment.results}</p>
-        </section>
-      )}
-
-
-      {experiment.conclusion && (
-        <section>
-          <h2>Conclusion</h2>
-          <p>{experiment.conclusion}</p>
-        </section>
-      )}
-
-
-      {experiment.limitations && experiment.limitations.length > 0 && (
-        <section>
-          <h2>Limitations</h2>
-
-          <ul>
-            {experiment.limitations.map((item) => (
-              <li key={item}>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-
-        {experiment.next_steps && (
-        <section>
-            <h2>Next Steps</h2>
-            <p>{experiment.next_steps}</p>
-
-            <br /> <br />
-
-            
-            <Link href="/experiments">
-            ← Back to Experiments
-            </Link>
-        </section>
-        )}
+      <section>
+        <Link href="/experiments">← Back to Experiments</Link>
+      </section>
     </main>
   );
 }

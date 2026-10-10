@@ -1,5 +1,5 @@
 import experimentsJson from "./generated";
-import type { Experiment } from "./types";
+import type { Experiment, ExperimentStatus } from "./types";
 
 const experiments = experimentsJson as Experiment[];
 
@@ -24,4 +24,28 @@ export function getExperiment(
   return getExperiments().find(
     (e) => e.id === slug
   );
+}
+
+const PLACEHOLDERS = ["tbd", "tbc", "pending", "experiment in progress"];
+
+/** True when a value is real content, not "TBD" / "Pending" / "[Jane to add …]". */
+export function hasContent(value: unknown): value is string {
+  if (typeof value !== "string") return false;
+  const v = value.trim().toLowerCase().replace(/\.+$/, "");
+  if (!v) return false;
+  if (v.startsWith("[jane to")) return false;
+  return !PLACEHOLDERS.includes(v);
+}
+
+export function statusLabel(status: ExperimentStatus): string {
+  return status === "Complete" ? "Completed" : status;
+}
+
+export function statusClassName(status: ExperimentStatus): string {
+  const classes: Record<ExperimentStatus, string> = {
+    Complete: "statusComplete",
+    "In Progress": "statusInProgress",
+    Planned: "statusPlanned",
+  };
+  return classes[status];
 }

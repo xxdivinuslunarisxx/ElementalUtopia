@@ -8,6 +8,13 @@ export type ExperimentType =
   | "Observation"
   | "Experiment";
 
+export type ExperimentIconName =
+  | "target"
+  | "timer"
+  | "thermometer"
+  | "flow"
+  | "gauge";
+
 
 export type CoffeeDetails = {
   name?: string;
@@ -38,6 +45,7 @@ export type Experiment = {
   title: string;
   type: ExperimentType;
   status: ExperimentStatus;
+  icon?: ExperimentIconName;
 
   summary: string;
 

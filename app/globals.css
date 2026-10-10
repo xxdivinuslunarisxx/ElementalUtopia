@@ -1853,6 +1853,35 @@ html.dark .logoImageLight { display: none; }
   font-weight: 700;
 }
 
+.experimentCardMeta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.experimentIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--border));
+  border-radius: 50%;
+  background: var(--surface-strong);
+  color: var(--accent);
+}
+
+.dark .experimentIcon {
+  color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) .experimentIcon {
+    color: var(--text);
+  }
+}
+
 
 .experimentStatus {
   padding: .35rem .8rem;
@@ -1926,6 +1955,31 @@ html.dark .logoImageLight { display: none; }
 .experimentStatus {
   background: var(--surface);
   border: 1px solid var(--border);
+}
+
+.experimentStatus.statusComplete {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.experimentStatus.statusInProgress {
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.experimentStatus.statusPlanned {
+  background: transparent;
+  border-style: dashed;
+  color: var(--muted);
+}
+
+.experimentPlannedNote {
+  padding: 1rem 1.25rem;
+  border: 1px dashed var(--border);
+  border-radius: 1rem;
+  color: var(--muted);
 }
 
 

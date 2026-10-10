@@ -52,12 +52,10 @@ export default function Home() {
               Elemental Utopia
             </h1>
             <p className="heroSubtitle">
-              Mobile Specialty Coffee Experiences for Workplaces, Events & Communities
+              Specialty Coffee, Wherever People Gather.
             </p>
             <p>           
-              Founder-operated specialty coffee pop-ups across West London,
-              combining coffee science, careful extraction and genuinely
-              great-tasting coffee.
+              Founder-operated mobile specialty coffee for workplaces, events and communities across West London and beyond.
             </p>
             <div className="buttonRow">
               <Link
@@ -72,6 +70,12 @@ export default function Home() {
               >
                 View Drinks
               </Link>
+            </div>
+            <br />
+            <div>
+              <span>
+                West London · Mobile Coffee Pop-Up · Founder Operated
+              </span>
             </div>
           </div>
         </div>
