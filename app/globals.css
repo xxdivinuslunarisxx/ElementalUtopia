@@ -1115,6 +1115,24 @@ html.dark .logoImageLight { display: none; }
   gap: .4rem;
 }
 
+/* Footer columns may shrink; long contact text (email, Instagram handle)
+   wraps instead of overflowing the footer container. */
+.footerBrand,
+.footerLinks,
+.footerContact {
+  min-width: 0;
+}
+
+.footerContact {
+  max-width: 100%;
+}
+
+.footerContact a,
+.footerContact .emailCopy {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
 .footerLinks a,
 .footerContact a {
   color: var(--muted);
@@ -1131,6 +1149,8 @@ html.dark .logoImageLight { display: none; }
 
 .siteFooter .footerCopyright {
   flex-basis: 100%;
+  align-self: stretch;
+  max-width: none;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
   font-size: var(--fs-85);
