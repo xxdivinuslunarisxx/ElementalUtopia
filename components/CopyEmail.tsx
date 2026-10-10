@@ -34,6 +34,7 @@ export function CopyEmail() {
         className="emailCopy"
         onClick={copyEmail}
         aria-label={`Copy email address ${CONTACT_EMAIL}`}
+        title="Click to copy the email"
       >
         {status === "copied" ? "Copied ✓" : CONTACT_EMAIL}
       </button>

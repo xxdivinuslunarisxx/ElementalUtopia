@@ -1,6 +1,6 @@
 import { BookingButton } from "@/components/BookingButton";
 import { CopyEmail } from "@/components/CopyEmail";
-import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/siteConfig";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/siteConfig";
 import type { Metadata } from "next";
 import Link from "next/link";
 
@@ -73,9 +73,7 @@ export default function ConnectPage() {
             Questions, collaborations, or event enquiries are always welcome.
           </p>
 
-          <a href={`mailto:${CONTACT_EMAIL}`}>Send an Email →</a>
-
-          <span>or click here to copy:</span>
+          <span className="emailCopyHint">Click to copy the email:</span>
 
           <CopyEmail />
         </article>

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 
-type NavLinkItem = { href: string; label: string };
+type NavLinkItem = { href: string; label: string; cta?: boolean };
 type NavGroup = { label: string; id: string; items: NavLinkItem[] };
 type NavEntry = NavLinkItem | NavGroup;
 
@@ -28,15 +28,10 @@ const navItems: NavEntry[] = [
       { href: "/species", label: "Coffee Species" },
     ],
   },
-  {
-    label: "Book & Contact",
-    id: "book-contact-menu",
-    items: [
-      { href: "/services", label: "Services" },
-      { href: "/booking", label: "Booking" },
-      { href: "/connect", label: "Connect" },
-    ],
-  },
+  { href: "/services", label: "Services" },
+  { href: "/connect", label: "Contact" },
+  // Call-to-action: rendered as a primary button at the end of the nav.
+  { href: "/booking", label: "Book", cta: true },
 ];
 
 function isGroup(entry: NavEntry): entry is NavGroup {
@@ -190,10 +185,13 @@ export function SiteNav() {
             }
 
             const active = isActive(pathname, entry.href);
+            const className = entry.cta
+              ? "button buttonPrimary navCta"
+              : `navLink ${active ? "navLinkActive" : ""}`;
 
             return (
               <Link
-                className={`navLink ${active ? "navLinkActive" : ""}`}
+                className={className}
                 href={entry.href}
                 key={entry.href}
                 aria-current={active ? "page" : undefined}

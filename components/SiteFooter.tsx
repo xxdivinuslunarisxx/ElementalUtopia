@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { CONTACT_EMAIL, INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/siteConfig";
+import { CopyEmail } from "@/components/CopyEmail";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/siteConfig";
 
 const footerLinks = [
   { href: "/menu", label: "Menu" },
@@ -29,7 +30,7 @@ export function SiteFooter() {
       </nav>
 
       <div className="footerContact">
-        <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>
+        <CopyEmail />
         <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
           Instagram @{INSTAGRAM_HANDLE}
         </a>
