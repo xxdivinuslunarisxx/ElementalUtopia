@@ -40,7 +40,7 @@ const focusAreas = [
 
 export default function Home() {
   return (
-    <main>
+    <div>
       {/* Hero */}
       <section className="homeSection">
         <div className="homebigbox">
@@ -290,6 +290,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </div>
   );
 }

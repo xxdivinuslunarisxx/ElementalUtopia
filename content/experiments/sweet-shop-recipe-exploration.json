@@ -45,28 +45,10 @@
       "notes": "[Jane to add tasting notes for 1:4]"
     },
     "1:3": {
-      "shot": "Shot B",
-      "dose": "18g",
-      "yield": "54g",
-      "actual_ratio": "1:3",
-      "time": "30 seconds",
-      "target_time": "25-30 seconds",
-      "aroma": "Brioche-like bread.",
-      "taste": "Soft and delicate, with a general sweetness like jelly beans.",
-      "with_milk": "Not great, a bit unpleasant.",
-      "notes": "\"Meh, bit gross.\""
+      "target_time": "25-30 seconds"
     },
     "1:2": {
-      "shot": "Shot A",
-      "dose": "18g",
-      "yield": "33g",
-      "actual_ratio": "1:1.8",
-      "time": "28 seconds",
-      "target_time": "25-30 seconds",
-      "aroma": "Mango.",
-      "taste": "Good acidity, mouth-watering after tasting. Think sour mango.",
-      "with_milk": "Really present, super mango, delicious.",
-      "notes": "\"God, it's so good.\""
+      "target_time": "25-30 seconds"
     },
     "1:1.5": {
       "target_time": "25-30 seconds",
@@ -74,9 +56,32 @@
     }
   },
 
+  "shots": [
+    {
+      "name": "Shot A (nearest the 1:2 recipe)",
+      "dose": "18g",
+      "yield": "33g",
+      "time": "28 seconds",
+      "ratio": "1:1.8",
+      "aroma": "Mango.",
+      "espressoNotes": "Good acidity, mouth-watering after tasting. Think sour mango.",
+      "milkNotes": "Really present, super mango, delicious. \"God, it's so good.\""
+    },
+    {
+      "name": "Shot B (1:3 recipe)",
+      "dose": "18g",
+      "yield": "54g",
+      "time": "30 seconds",
+      "ratio": "1:3",
+      "aroma": "Brioche-like bread.",
+      "espressoNotes": "Soft and delicate, with a general sweetness like jelly beans.",
+      "milkNotes": "Not great, a bit unpleasant. \"Meh, bit gross.\""
+    }
+  ],
+
   "results": "Both shots used an 18g dose. Shot A (33g out, about 1:1.8, 28 seconds) had a mango aroma and good acidity, and was mouth-watering after tasting, think sour mango. With milk it was really present, super mango and delicious. Shot B (54g out, 1:3, 30 seconds) had a brioche-like bread aroma and a soft, delicate taste with a general sweetness like jelly beans. With milk it was not great and a bit unpleasant.",
 
-  "conclusion": "The shorter 1:1.8 shot gave a bright, sour-mango profile that shone with milk. The longer 1:3 shot was softer and sweeter (think jelly beans) but did not work with milk.",
+  "conclusion": "At an 18g dose, the shorter shot (about 1:1.8, 28 seconds) gave mango and bright acidity and shone with milk. The longer 1:3 shot (30 seconds) was softer and sweeter as a straight espresso, like jelly beans, but did not work with milk.",
 
   "limitations": [
     "No TDS measurements were taken.",

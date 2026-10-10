@@ -30,7 +30,7 @@ export default function ExperimentsPage() {
   );
 
   return (
-    <main>
+    <div>
       <header className="experimentsHeader">
         <p className="experimentsEyebrow">Coffee Lab</p>
         <h1>Experiments</h1>
@@ -100,6 +100,6 @@ export default function ExperimentsPage() {
 
       </div>
       
-    </main>
+    </div>
   );
 }

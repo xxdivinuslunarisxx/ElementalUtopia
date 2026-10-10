@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="servicesPage">
+    <div className="servicesPage">
 
       {/* HERO */}
       <header className="servicesHero">
@@ -390,6 +390,6 @@ export default function ServicesPage() {
         </Link>
       </section>
 
-    </main>
+    </div>
   );
 }

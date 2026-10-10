@@ -20,7 +20,7 @@ export default function BookingPage() {
 
 return (
 
-    <main className="bookPage">
+    <div className="bookPage">
 
         <section className="bookSection bookIntro">
 
@@ -35,9 +35,9 @@ return (
             <p className="bookHeroLead">
                 Specialty coffee served by the founder of Elemental Utopia.
             </p>
-            <h3>
+            <p className="bookFromPrice">
                 Bookings start from £70
-            </h3>
+            </p>
 
         </section>
 
@@ -45,9 +45,9 @@ return (
 
             <div className="infoBlock">
 
-                <h3>
+                <h2>
                     Suitable For
-                </h3>
+                </h2>
 
                 <ul className="featureList">
 
@@ -65,9 +65,9 @@ return (
 
             <div className="infoBlock">
 
-                <h3>
+                <h2>
                     What's Included?
-                </h3>
+                </h2>
 
                 <ul className="featureList">
 
@@ -88,9 +88,9 @@ return (
 
             <div className="infoBlock">
 
-                <h3>
+                <h2>
                     How Booking Works
-                </h3>
+                </h2>
 
 
                 <div className="bookingSteps">
@@ -346,6 +346,6 @@ return (
 
             <CopyEmail />
         </section>
-    </main>
+    </div>
     );
 }

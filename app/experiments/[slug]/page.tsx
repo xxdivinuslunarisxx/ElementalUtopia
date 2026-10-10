@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ExperimentPhoto, ShotCard } from "@/components/ShotCard";
 import {
   getExperiment,
   hasContent,
@@ -57,7 +58,7 @@ export default async function ExperimentPage({ params }: Props) {
   );
 
   return (
-    <main className="experimentPage">
+    <div className="experimentPage">
       <header className="experimentHeader">
         <div className="experimentBadges">
           <span className="experimentType">{experiment.type}</span>
@@ -71,6 +72,8 @@ export default async function ExperimentPage({ params }: Props) {
 
         <p>{experiment.summary}</p>
       </header>
+
+      <ExperimentPhoto src={experiment.photo} alt={experiment.photoAlt} />
 
       {hasContent(experiment.question) && (
         <section>
@@ -103,6 +106,17 @@ export default async function ExperimentPage({ params }: Props) {
                   {label}: {experiment.coffee?.[key]}
                 </p>
               ))}
+            </section>
+          )}
+
+          {experiment.shots && experiment.shots.length > 0 && (
+            <section>
+              <h2>Shots</h2>
+              <div className="shotGrid">
+                {experiment.shots.map((shot, index) => (
+                  <ShotCard key={index} shot={shot} index={index} />
+                ))}
+              </div>
             </section>
           )}
 
@@ -169,6 +183,6 @@ export default async function ExperimentPage({ params }: Props) {
       <section className="experimentBack">
         <Link href="/experiments">← Back to Experiments</Link>
       </section>
-    </main>
+    </div>
   );
 }

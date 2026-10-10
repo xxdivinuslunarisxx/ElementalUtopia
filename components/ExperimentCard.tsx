@@ -23,7 +23,7 @@ export default function ExperimentCard({
         </span>
       </div>
 
-      <h2>{experiment.title}</h2>
+      <h3>{experiment.title}</h3>
 
       <p className="experimentSummary">
         {experiment.summary}

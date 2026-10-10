@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function ConnectPage() {
   return (
-    <main className="connectPage">
+    <div className="connectPage">
       <header className="connectHeader">
         <p className="connectEyebrow">Elemental Utopia</p>
 
@@ -91,6 +91,6 @@ export default function ConnectPage() {
           <Link href="/experiments">Explore the Coffee Lab →</Link>
         </article>
       </section>
-    </main>
+    </div>
   );
 }

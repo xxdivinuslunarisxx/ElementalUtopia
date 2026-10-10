@@ -90,6 +90,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Safety net: never show a sideways scrollbar (clip doesn't break the sticky header) */
+  overflow-x: clip;
 }
 
 a {
@@ -252,6 +254,101 @@ main {
   cursor: pointer;
 }
 
+/* Coffee Lab dropdown (SiteNav NavDropdown) */
+.navGroup {
+  position: relative;
+}
+
+.navGroupButton {
+  gap: 6px;
+  background: transparent;
+  font: inherit;
+  font-size: 0.94rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.navGroupCaret {
+  font-size: .75em;
+  transition: transform 160ms ease;
+}
+
+.navGroupButton[aria-expanded="true"] .navGroupCaret {
+  transform: rotate(180deg);
+}
+
+.navGroupList {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 30;
+  display: none;
+  min-width: 180px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  box-shadow: var(--shadow);
+}
+
+.navGroupListOpen {
+  display: grid;
+  gap: 4px;
+}
+
+/* Keep the last dropdown inside the viewport */
+.navGroup:last-child .navGroupList {
+  left: auto;
+  right: 0;
+}
+
+.navGroupList .navLink {
+  width: 100%;
+}
+
+/* Keyboard focus: visible outline using existing theme variables */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.dark :focus-visible {
+  outline-color: var(--text);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not(.light) :focus-visible {
+    outline-color: var(--text);
+  }
+}
+
+/* Skip link: hidden until focused */
+.skipLink {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 100;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--background);
+  color: var(--text);
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skipLink:focus {
+  transform: translateY(0);
+}
+
+#main-content:focus,
+#main-content:focus-visible {
+  outline: none;
+}
+
 
 
 .heroSection,
@@ -349,16 +446,37 @@ main {
     box-shadow: var(--shadow);
     transform: translateY(-16px);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
     transition:
       opacity 160ms ease,
-      transform 160ms ease;
+      transform 160ms ease,
+      visibility 160ms;
   }
 
   .navLinksOpen {
     transform: translateY(0);
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
+  }
+
+  .navGroupButton {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* On mobile the Coffee Lab links show as a nested, indented list */
+  .navGroupList {
+    position: static;
+    min-width: 0;
+    margin-top: 6px;
+    padding: 0 0 0 16px;
+    border: 0;
+    border-left: 2px solid var(--border);
+    border-radius: 0;
+    background: none;
+    box-shadow: none;
   }
 
   .navLink {
@@ -1203,7 +1321,7 @@ html.dark .logoImageLight { display: none; }
 
   margin: 0.25rem 0 0.75rem;
 
-  color: var(--specialtext);
+  color: var(--text);
 
   letter-spacing: -0.03em;
 
@@ -1767,7 +1885,8 @@ html.dark .logoImageLight { display: none; }
   max-width: clamp(220px, 50vw, 400px);
 }
 
-.logotextbox h1, p {
+.logotextbox h1,
+.logotextbox p {
   padding: 10px 0;
 }
 
@@ -2008,7 +2127,7 @@ html.dark .logoImageLight { display: none; }
 }
 
 
-.experimentCard h2 {
+.experimentCard h3 {
   font-size: clamp(1.2rem, 2vw, 1.4rem);
   line-height: 1.25;
 }
@@ -2241,6 +2360,91 @@ html.dark .logoImageLight { display: none; }
   html:not(.light) .experimentSection.speciesTeaser a {
     color: var(--text);
   }
+}
+
+/* Shot cards: spec row + tasting notes */
+.shotGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+}
+
+.shotCard,
+.experimentPage article.shotCard {
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent);
+  border-left: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-strong);
+}
+
+.shotCard h3 {
+  font-size: 1.05rem;
+  text-transform: none;
+}
+
+.shotSpecs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.shotSpecs div {
+  padding: 8px 6px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  text-align: center;
+}
+
+.shotSpecs dt {
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.shotSpecs dd {
+  margin: .2rem 0 0;
+  color: var(--text);
+  font-size: .95rem;
+  font-weight: 700;
+}
+
+.shotNotes {
+  display: grid;
+  gap: .35rem;
+}
+
+.shotNotes h4 {
+  margin: 0;
+  color: var(--text);
+  font-size: .75rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.shotNotes strong {
+  color: var(--text);
+}
+
+.experimentPhoto {
+  margin: 0;
+}
+
+.experimentPhoto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
 }
 
 .experimentPage .experimentPlannedNote {
@@ -2544,7 +2748,15 @@ html.dark .logoImageLight { display: none; }
 
 
 
-.infoBlock h3 {
+/* Was an <h3>; kept the same look without skipping a heading level */
+.bookFromPrice {
+  color: var(--text);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.08;
+}
+
+.infoBlock h2 {
 
     font-size:1.6rem;
 
@@ -3023,7 +3235,7 @@ html.dark .logoImageLight { display: none; }
 
 .servicesBadge span {
   padding: 7px 13px;
-  border: 1px solid var(--border-color, #ddd);
+  border: 1px solid var(--border);
   border-radius: 999px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -3122,7 +3334,7 @@ html.dark .logoImageLight { display: none; }
 
 .serviceCard {
   padding: 35px;
-  border: 1px solid var(--border-color, #ddd);
+  border: 1px solid var(--border);
   border-radius: 20px;
 }
 
@@ -3161,7 +3373,7 @@ html.dark .logoImageLight { display: none; }
    --------------------------------------------------------- */
 
 .servicesDifference {
-  border-top: 1px solid var(--border-color, #ddd);
+  border-top: 1px solid var(--border);
 }
 
 .servicesFeatureGrid {
@@ -3204,8 +3416,8 @@ html.dark .logoImageLight { display: none; }
    --------------------------------------------------------- */
 
 .servicesMenu {
-  border-top: 1px solid var(--border-color, #ddd);
-  border-bottom: 1px solid var(--border-color, #ddd);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .servicesMenuContent {
@@ -3241,12 +3453,12 @@ html.dark .logoImageLight { display: none; }
   margin: 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--border-color, #ddd);
+  border-top: 1px solid var(--border);
 }
 
 .servicesDrinkList li {
   padding: 20px 0;
-  border-bottom: 1px solid var(--border-color, #ddd);
+  border-bottom: 1px solid var(--border);
   font-size: 1.1rem;
 }
 
@@ -3273,7 +3485,7 @@ html.dark .logoImageLight { display: none; }
 
 .servicesLocationList span {
   padding: 10px 17px;
-  border: 1px solid var(--border-color, #ddd);
+  border: 1px solid var(--border);
   border-radius: 999px;
   font-size: 0.9rem;
 }
@@ -3289,8 +3501,8 @@ html.dark .logoImageLight { display: none; }
   margin: 0 !important;
   padding: 100px 20px;
   text-align: center;
-  border-top: 1px solid var(--border-color, #ddd);
-  border-bottom: 1px solid var(--border-color, #ddd);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .servicesCTAContent {
@@ -3329,7 +3541,7 @@ html.dark .logoImageLight { display: none; }
 
 .servicesFAQItem {
   padding: 28px 0;
-  border-top: 1px solid var(--border-color, #ddd);
+  border-top: 1px solid var(--border);
 }
 
 .servicesFAQItem h3 {
@@ -3697,3 +3909,9 @@ html.dark .logoImageLight { display: none; }
 /*#endregion*/
 /*=========================================*/
 /*#endregion*/
+
+@media (max-width: 480px) {
+  .shotSpecs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
