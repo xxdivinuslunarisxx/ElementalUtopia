@@ -25,7 +25,7 @@ export async function POST(request: Request) {
             return Response.json(
                 {
                     success:false,
-                    error:"Email service unavailable"
+                    error:"Sorry, our enquiry form isn't working right now. Please email info@elementalutopia.com."
                 },
                 {
                     status:500
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
         // ==============================
 
 
-        await resend.emails.send({
+        const { error: adminError } = await resend.emails.send({
 
             from: "Elemental Utopia <info@elementalutopia.com>",
 
@@ -183,6 +183,18 @@ export async function POST(request: Request) {
 
         });
 
+        if (adminError) {
+            console.error("Admin email failed", adminError);
+            return Response.json(
+                {
+                    success: false,
+                    error: "Sorry, we couldn't send your enquiry just now. Please try again or email info@elementalutopia.com."
+                },
+                { status: 502 }
+            );
+        }
+
+
 
 
 
@@ -194,7 +206,7 @@ export async function POST(request: Request) {
         // ==============================
 
 
-        await resend.emails.send({
+        const { error: customerError } = await resend.emails.send({
 
             from: "Elemental Utopia <info@elementalutopia.com>",
 
@@ -404,6 +416,8 @@ export async function POST(request: Request) {
 
         });
 
+        if (customerError) console.error("Confirmation email failed", customerError);
+
 
 
 
@@ -425,8 +439,7 @@ export async function POST(request: Request) {
         return Response.json(
             {
                 success: false,
-                error: error instanceof Error ? error.message : String(error),
-                details: error,
+                error: "Something went wrong sending your enquiry. Please try again or email info@elementalutopia.com.",
             },
             {
                 status: 500,

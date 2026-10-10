@@ -1,9 +1,10 @@
 import { getExperiments } from "@/lib/experiments/getExperiments";
 import ExperimentCard from "@/components/ExperimentCard";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Coffee Experiments & Research | Elemental Utopia",
+  title: "Coffee Experiments & Research",
 
   description:
     "Explore our coffee experiments investigating espresso extraction, brew ratios, temperature, pressure and flavour.",
@@ -42,7 +43,7 @@ export default function ExperimentsPage() {
 
         {completed.length > 0 && (
           <section className="experimentSection">
-            <h2>Completed Experiments</h2>
+            <h2>Completed</h2>
 
             <div className="experimentGrid">
               {completed.map((experiment) => (
@@ -72,7 +73,7 @@ export default function ExperimentsPage() {
 
         {planned.length > 0 && (
           <section className="experimentSection">
-            <h2>Planned Experiments</h2>
+            <h2>Planned</h2>
 
             <div className="experimentGrid">
               {planned.map((experiment) => (
@@ -84,6 +85,17 @@ export default function ExperimentsPage() {
             </div>
           </section>
         )}
+
+        <section className="experimentSection speciesTeaser">
+          <h2>Beyond Arabica</h2>
+          <p>
+            Most coffee comes from just two species. Meet four we find
+            fascinating, including stenophylla, a rare West African coffee
+            with arabica-like flavour and notable heat tolerance.
+          </p>
+          <Link href="/species">Explore coffee species →</Link>
+        </section>
+
 
       </div>
       

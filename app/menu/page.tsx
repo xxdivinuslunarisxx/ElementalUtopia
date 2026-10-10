@@ -1,8 +1,36 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+
+/* =====================================================================
+   MENU PRICES: edit here.
+   Write each price as text, e.g. "£3.20".
+   Leave a price as "" to show "Price TBC" on the site.
+   ===================================================================== */
+const MENU: { hot: MenuItem[]; iced: MenuItem[] } = {
+  hot: [
+    { name: "Espresso", price: "" },
+    { name: "Flat White", price: "" },
+    { name: "Latte", price: "" },
+    { name: "Cappuccino", price: "" },
+    { name: "Americano", price: "" },
+  ],
+  iced: [
+    { name: "Iced Latte", price: "" },
+    { name: "Iced Americano", price: "" },
+  ],
+};
+
+type MenuItem = { name: string; price: string };
+
+const allPriced = [...MENU.hot, ...MENU.iced].every(
+  (drink) => drink.price.trim() !== ""
+);
+
+function displayPrice(price: string) {
+  return price.trim() || "Price TBC";
+}
 
 export const metadata: Metadata = {
-  title: "Coffee Menu | Elemental Utopia",
+  title: "Coffee Menu",
 
   description:
     "Explore the specialty coffee menu served at Elemental Utopia pop-ups, including espresso, milk drinks and seasonal offerings.",
@@ -12,8 +40,6 @@ export const metadata: Metadata = {
   },
 };
 
-const hotDrinks = ["Espresso", "Flat White", "Latte", "Cappuccino", "Americano"];
-const icedDrinks = ["Iced Latte", "Iced Americano"];
 const prepNotes = [
   {
     title: "Espresso",
@@ -44,21 +70,21 @@ export default function MenuPage() {
         <div>
           <h1>Menu</h1>
           <p>
-            Coffee drinks made with specialty espresso. Prices are currently
-            unset while the launch menu is being finalised.
+            Coffee drinks made with specialty espresso.
+            {!allPriced &&
+              " Prices are currently unset while the launch menu is being finalised."}
           </p>
         </div>
-        
       </section>
 
       <section className="menuColumns" aria-label="Coffee drinks">
         <div className="menuPanel">
           <h2>Hot</h2>
           <ul className="priceList">
-            {hotDrinks.map((drink) => (
-              <li key={drink}>
-                <span>{drink}</span>
-                <span>Price TBC</span>
+            {MENU.hot.map((drink) => (
+              <li key={drink.name}>
+                <span>{drink.name}</span>
+                <span>{displayPrice(drink.price)}</span>
               </li>
             ))}
           </ul>
@@ -66,10 +92,10 @@ export default function MenuPage() {
         <div className="menuPanel">
           <h2>Iced</h2>
           <ul className="priceList">
-            {icedDrinks.map((drink) => (
-              <li key={drink}>
-                <span>{drink}</span>
-                <span>Price TBC</span>
+            {MENU.iced.map((drink) => (
+              <li key={drink.name}>
+                <span>{drink.name}</span>
+                <span>{displayPrice(drink.price)}</span>
               </li>
             ))}
           </ul>

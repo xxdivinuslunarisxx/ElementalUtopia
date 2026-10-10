@@ -4,7 +4,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mobile Specialty Coffee Pop-Ups West London | Elemental Utopia",
+  title: { absolute: "Mobile Specialty Coffee Pop-Ups in West London | Elemental Utopia" },
 
   description:
     "Founder-operated specialty coffee pop-ups across West London for workplaces, events and communities. Science-led coffee, careful extraction and genuinely great-tasting coffee.",
@@ -250,7 +250,7 @@ export default function Home() {
 
             <Link
               href="/services"
-              className="servicesPreviewButton"
+              className="button buttonSecondary servicesPreviewButton"
             >
               Explore Our Services →
             </Link>

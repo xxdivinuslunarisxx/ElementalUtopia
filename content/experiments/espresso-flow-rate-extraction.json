@@ -3,6 +3,7 @@
   "title": "The Effect of Flow Rate on Espresso Extraction",
   "type": "Experiment",
   "status": "Planned",
+  "icon": "flow",
 
   "summary": "Investigating how changes in espresso flow rate influence flavour clarity, sweetness, body, and extraction characteristics.",
 

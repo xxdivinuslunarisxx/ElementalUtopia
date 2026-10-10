@@ -1,4 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Mobile Coffee Services for Events & Workplaces",
+  description:
+    "Founder-operated mobile specialty coffee for workplace coffee mornings, corporate events, private and community gatherings, markets and pop-ups across West London.",
+  alternates: {
+    canonical: "https://elementalutopia.com/services",
+  },
+};
+
 
 export default function ServicesPage() {
   return (

@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: "Book a Specialty Coffee Pop-Up | Elemental Utopia",
+  title: "Book a Specialty Coffee Pop-Up",
 
   description:
     "Book Elemental Utopia for workplaces, corporate events, private functions and community pop-ups across West London.",
@@ -73,7 +73,7 @@ return (
 
                     <li>Complete mobile coffee station</li>
                     <li>Professional espresso equipment</li>
-                    <li>Speciality coffee beans</li>
+                    <li>Specialty coffee beans</li>
                     <li>Milk and oat milk options</li>
                     <li>Compostable cups and lids</li>
                     <li>Setup and pack-down</li>
@@ -204,7 +204,7 @@ return (
             </div>
 
             <p>
-                Every booking includes everything needed to create a complete mobile coffee experience. I bring the full coffee station, professional espresso equipment, carefully selected speciality coffee, fresh milk and oat milk, compostable cups and lids, and take care of both setup and pack-down, so you can focus on enjoying your event. Every coffee is prepared and served by me, ensuring each guest receives the same care and attention from start to finish.
+                Every booking includes everything needed to create a complete mobile coffee experience. I bring the full coffee station, professional espresso equipment, carefully selected specialty coffee, fresh milk and oat milk, compostable cups and lids, and take care of both setup and pack-down, so you can focus on enjoying your event. Every coffee is prepared and served by me, ensuring each guest receives the same care and attention from start to finish.
 
 
             </p>
@@ -238,7 +238,7 @@ return (
                 </li>
                 
                 <li>
-                    Inside Space requirement 2x2m
+                    Inside Space requirement - 2x2m
                 </li>
 
                 <li>
@@ -325,10 +325,11 @@ return (
             <p>
                 Interested in creating a coffee experience for your workplace,
                 event, or community?
-                <br /><br />
+            </p>
 
-                Experiences start from £70. Share your requirements via email for a clear quote
-                
+            <p>
+                Experiences start from £70. Share your requirements using the
+                form or by email for a clear, no-obligation quote.
             </p>
 
             <BookingButton/>   
