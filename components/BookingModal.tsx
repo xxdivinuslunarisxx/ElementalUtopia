@@ -10,6 +10,7 @@ export default function BookingModal({ onClose }: BookingModalProps) {
 
     const [submitted, setSubmitted] = useState(false);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -17,6 +18,7 @@ export default function BookingModal({ onClose }: BookingModalProps) {
         e.preventDefault();
 
         setLoading(true);
+        setError(null);
 
         const form = e.currentTarget;
 
@@ -70,21 +72,24 @@ export default function BookingModal({ onClose }: BookingModalProps) {
             });
 
 
-            const result = await response.json();
+            const result = await response.json().catch(() => ({}));
 
-        if (response.ok) {
-            setSubmitted(true);
-        } else {
-            console.error(result);
-            alert(result.error || JSON.stringify(result));
-        }
+            if (response.ok) {
+                setSubmitted(true);
+            } else {
+                console.error(result);
+                setError(
+                    result.error ||
+                    "Something went wrong. Please try again or email info@elementalutopia.com."
+                );
+            }
 
 
         } catch (error) {
 
             console.error(error);
 
-            alert("Something went wrong. Please try again.");
+            setError("We couldn't reach the server. Please check your connection and try again, or email info@elementalutopia.com.");
 
         }
 
@@ -268,6 +273,12 @@ export default function BookingModal({ onClose }: BookingModalProps) {
                             />
 
 
+
+                            {error && (
+                                <p className="formError" role="alert">
+                                    {error}
+                                </p>
+                            )}
 
                             <button
                                 type="submit"
