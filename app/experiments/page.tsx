@@ -32,6 +32,7 @@ export default function ExperimentsPage() {
   return (
     <main>
       <header className="experimentsHeader">
+        <p className="experimentsEyebrow">Coffee Lab</p>
         <h1>Experiments</h1>
         <p>
           Exploring coffee through controlled testing,

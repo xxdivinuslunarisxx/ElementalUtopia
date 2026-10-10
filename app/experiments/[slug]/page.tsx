@@ -166,7 +166,7 @@ export default async function ExperimentPage({ params }: Props) {
         </>
       )}
 
-      <section>
+      <section className="experimentBack">
         <Link href="/experiments">← Back to Experiments</Link>
       </section>
     </main>
