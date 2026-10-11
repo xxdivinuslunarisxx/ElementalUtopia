@@ -155,7 +155,7 @@ export default function ServicesPage() {
 
             <p>
               We pay attention to how the coffee is actually extracting and
-              tasting rather than simply following one recipe regardless of
+              tasting rather than simply following one recipe, regardless of
               what is happening in the cup.
             </p>
 
