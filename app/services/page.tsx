@@ -299,6 +299,17 @@ export default function ServicesPage() {
             <div className="servicesFAQGrid">
 
             <article className="servicesFAQItem">
+                <h3>What makes your coffee "specialty"?</h3>
+                <p>
+                Specialty coffee generally refers to coffee produced and
+                evaluated to a high standard throughout its journey from farm
+                to cup. At Elemental Utopia, that quality is paired with
+                careful preparation, extraction and tasting rather than simply
+                relying on the label.
+                </p>
+            </article>
+
+            <article className="servicesFAQItem">
                 <h3>How far does Elemental Utopia travel?</h3>
                 <p>
                 Elemental Utopia primarily operates across West London.
@@ -351,17 +362,6 @@ export default function ServicesPage() {
                 Yes. Send us the date, location, approximate guest numbers and
                 what you'd like from the coffee service, and we'll discuss the
                 options.
-                </p>
-            </article>
-
-            <article className="servicesFAQItem">
-                <h3>What makes your coffee "specialty"?</h3>
-                <p>
-                Specialty coffee generally refers to coffee produced and
-                evaluated to a high standard throughout its journey from farm
-                to cup. At Elemental Utopia, that quality is paired with
-                careful preparation, extraction and tasting rather than simply
-                relying on the label.
                 </p>
             </article>
 
