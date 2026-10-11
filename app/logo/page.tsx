@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LogoMark } from "@/components/LogoMark";
 
 export const metadata: Metadata = {
-  title: "Our Logo | Elemental Utopia",
+  title: "Our Logo",
 
   description:
     "Discover the symbolism behind the Elemental Utopia logo and how the four classical elements shape our philosophy.",

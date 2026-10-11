@@ -1,8 +1,26 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+
+/* =====================================================================
+   MENU: edit the drinks offered here.
+   ===================================================================== */
+const MENU: { hot: MenuItem[]; iced: MenuItem[] } = {
+  hot: [
+    { name: "Espresso" },
+    { name: "Flat White" },
+    { name: "Latte" },
+    { name: "Cappuccino" },
+    { name: "Americano" },
+  ],
+  iced: [
+    { name: "Iced Latte" },
+    { name: "Iced Americano" },
+  ],
+};
+
+type MenuItem = { name: string };
 
 export const metadata: Metadata = {
-  title: "Coffee Menu | Elemental Utopia",
+  title: "Coffee Menu",
 
   description:
     "Explore the specialty coffee menu served at Elemental Utopia pop-ups, including espresso, milk drinks and seasonal offerings.",
@@ -12,8 +30,6 @@ export const metadata: Metadata = {
   },
 };
 
-const hotDrinks = ["Espresso", "Flat White", "Latte", "Cappuccino", "Americano"];
-const icedDrinks = ["Iced Latte", "Iced Americano"];
 const prepNotes = [
   {
     title: "Espresso",
@@ -44,33 +60,25 @@ export default function MenuPage() {
         <div>
           <h1>Menu</h1>
           <p>
-            Coffee drinks made with specialty espresso. Prices are currently
-            unset while the launch menu is being finalised.
+            Coffee drinks made with specialty espresso.
           </p>
         </div>
-        
       </section>
 
       <section className="menuColumns" aria-label="Coffee drinks">
         <div className="menuPanel">
           <h2>Hot</h2>
           <ul className="priceList">
-            {hotDrinks.map((drink) => (
-              <li key={drink}>
-                <span>{drink}</span>
-                <span>Price TBC</span>
-              </li>
+            {MENU.hot.map((drink) => (
+              <li key={drink.name}>{drink.name}</li>
             ))}
           </ul>
         </div>
         <div className="menuPanel">
           <h2>Iced</h2>
           <ul className="priceList">
-            {icedDrinks.map((drink) => (
-              <li key={drink}>
-                <span>{drink}</span>
-                <span>Price TBC</span>
-              </li>
+            {MENU.iced.map((drink) => (
+              <li key={drink.name}>{drink.name}</li>
             ))}
           </ul>
           <p className="smallNote">Iced drinks available when ice supply permits.</p>

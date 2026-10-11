@@ -3,6 +3,7 @@
   "title": "The Effect of Extraction Temperature on Espresso Character",
   "type": "Experiment",
   "status": "Planned",
+  "icon": "thermometer",
 
   "summary": "Investigating how changes in brew temperature influence espresso extraction, flavour clarity, sweetness, and bitterness.",
 

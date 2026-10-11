@@ -3,6 +3,7 @@
   "title": "Pressure Profile Espresso Experiment",
   "type": "Experiment",
   "status": "Planned",
+  "icon": "gauge",
   "summary": "Exploring how pressure profiling affects espresso extraction.",
   "question": "How does changing pressure during extraction influence flavour?",
   "hypothesis": "Different pressure profiles may influence extraction behaviour and flavour clarity.",

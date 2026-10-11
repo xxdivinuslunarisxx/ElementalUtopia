@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LogoMark } from "@/components/LogoMark";
 
 export const metadata: Metadata = {
-  title: "About Elemental Utopia | Founder Story",
+  title: "Our Story & Founder",
 
   description:
     "Learn how Elemental Utopia began and discover the science, experimentation and passion behind our mobile specialty coffee service.",
@@ -33,7 +33,7 @@ export default function AboutPage() {
           </p>
           <p>
             The difference between commodity coffee and specialty
-            Coffee was massive. It felt like discovering that coffee was not
+            coffee was massive. It felt like discovering that coffee was not
             one thing, but a whole spectrum of flavour waiting to be understood.
           </p>
           <p>

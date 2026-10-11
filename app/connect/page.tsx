@@ -1,16 +1,21 @@
+import { BookingButton } from "@/components/BookingButton";
 import { CopyEmail } from "@/components/CopyEmail";
+import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/siteConfig";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Connect",
   description:
-    "Connect with Elemental Utopia through social media, email, and future events.",
+    "Connect with Elemental Utopia through Instagram, email, and upcoming markets and events across West London.",
+  alternates: {
+    canonical: "https://elementalutopia.com/connect",
+  },
 };
 
 export default function ConnectPage() {
   return (
-    <main className="connectPage">
+    <div className="connectPage">
       <header className="connectHeader">
         <p className="connectEyebrow">Elemental Utopia</p>
 
@@ -23,22 +28,42 @@ export default function ConnectPage() {
         </p>
       </header>
 
+      <section className="connectFeature" aria-labelledby="upcoming-market">
+        <span className="eventBadge">Now Booking</span>
+
+        <h2 id="upcoming-market">📍 Upcoming Market</h2>
+
+        <p>
+          We are currently preparing our mobile coffee setup and looking for
+          opportunities to bring specialty coffee to events, workplaces, and
+          communities across West London.
+        </p>
+
+        <p>
+          Running a market, event or workplace day? Tell us the date, location
+          and rough guest numbers and we'll get back to you with a quote.
+        </p>
+
+        <div className="connectFeatureActions">
+          <BookingButton />
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+            Follow @{INSTAGRAM_HANDLE} for dates →
+          </a>
+        </div>
+      </section>
+
       <section className="connectGrid">
         <article className="connectCard">
           <h2>📸 Instagram</h2>
 
           <p>
             Behind-the-scenes brewing, coffee experiments, and updates from the
-            journey.
+            journey, including where to find us next.
           </p>
 
-          <Link
-            href="https://www.instagram.com/elemental_utopia_coffee/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Profile →
-          </Link>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer">
+            @{INSTAGRAM_HANDLE} · View Profile →
+          </a>
         </article>
 
         <article className="connectCard">
@@ -48,35 +73,22 @@ export default function ConnectPage() {
             Questions, collaborations, or event enquiries are always welcome.
           </p>
 
-          <Link href="mailto:xxdivinuslunarisxx@gmail.com">
-            Send an Email →
-          </Link>
-          <span>
-            or click here to copy:
-          </span>
+          <span className="emailCopyHint">Click to copy the email:</span>
 
           <CopyEmail />
         </article>
 
         <article className="connectCard">
-          <h2>📍 Upcoming Market</h2>
-          <p> 
-            We are currently preparing our mobile coffee setup and looking for
-            opportunities to bring specialty coffee to events, workplaces, and
-            communities across West London.
-          </p>
-        </article>
-
-        <article className="connectCard">
-          <h2>🎥 More Content</h2>
+          <h2>🧪 Coffee Lab</h2>
 
           <p>
-            Future brewing guides, educational videos, and coffee research.
+            Follow our brewing experiments and discover lesser-known coffee
+            species.
           </p>
 
-          <span className="comingSoon">Coming Soon</span>
+          <Link href="/experiments">Explore the Coffee Lab →</Link>
         </article>
       </section>
-    </main>
+    </div>
   );
 }

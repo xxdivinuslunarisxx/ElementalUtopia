@@ -6,7 +6,7 @@ import { Metadata } from "next";
 
 
 export const metadata: Metadata = {
-  title: "Book a Specialty Coffee Pop-Up | Elemental Utopia",
+  title: "Book a Specialty Coffee Pop-Up",
 
   description:
     "Book Elemental Utopia for workplaces, corporate events, private functions and community pop-ups across West London.",
@@ -20,7 +20,7 @@ export default function BookingPage() {
 
 return (
 
-    <main className="bookPage">
+    <div className="bookPage">
 
         <section className="bookSection bookIntro">
 
@@ -35,9 +35,9 @@ return (
             <p className="bookHeroLead">
                 Specialty coffee served by the founder of Elemental Utopia.
             </p>
-            <h3>
+            <p className="bookFromPrice">
                 Bookings start from £70
-            </h3>
+            </p>
 
         </section>
 
@@ -45,9 +45,9 @@ return (
 
             <div className="infoBlock">
 
-                <h3>
+                <h2>
                     Suitable For
-                </h3>
+                </h2>
 
                 <ul className="featureList">
 
@@ -65,15 +65,15 @@ return (
 
             <div className="infoBlock">
 
-                <h3>
+                <h2>
                     What's Included?
-                </h3>
+                </h2>
 
                 <ul className="featureList">
 
                     <li>Complete mobile coffee station</li>
                     <li>Professional espresso equipment</li>
-                    <li>Speciality coffee beans</li>
+                    <li>Specialty coffee beans</li>
                     <li>Milk and oat milk options</li>
                     <li>Compostable cups and lids</li>
                     <li>Setup and pack-down</li>
@@ -88,9 +88,9 @@ return (
 
             <div className="infoBlock">
 
-                <h3>
+                <h2>
                     How Booking Works
-                </h3>
+                </h2>
 
 
                 <div className="bookingSteps">
@@ -204,13 +204,17 @@ return (
             </div>
 
             <p>
-                Every booking includes everything needed to create a complete mobile coffee experience. I bring the full coffee station, professional espresso equipment, carefully selected speciality coffee, fresh milk and oat milk, compostable cups and lids, and take care of both setup and pack-down, so you can focus on enjoying your event. Every coffee is prepared and served by me, ensuring each guest receives the same care and attention from start to finish.
+                Every booking includes everything needed to create a complete mobile coffee experience. I bring the full coffee station, professional espresso equipment, carefully selected specialty coffee, fresh milk and oat milk, compostable cups and lids, and take care of both setup and pack-down, so you can focus on enjoying your event. Every coffee is prepared and served by me, ensuring each guest receives the same care and attention from start to finish.
 
 
             </p>
 
             <p>
                 Bookings start from £70, with the final price depending on factors such as the event duration, expected number of guests, location, and any additional requirements. Once you get in touch, I'll provide a clear, no-obligation quote tailored to your event, so you'll know exactly what's included before making a decision.
+            </p>
+
+            <p>
+                Community rates are available for charities and non-profit organisations. Just mention it when you request a quote.
             </p>
 
         </section>
@@ -238,7 +242,7 @@ return (
                 </li>
                 
                 <li>
-                    Inside Space requirement 2x2m
+                    Inside Space requirement - 2x2m
                 </li>
 
                 <li>
@@ -325,10 +329,11 @@ return (
             <p>
                 Interested in creating a coffee experience for your workplace,
                 event, or community?
-                <br /><br />
+            </p>
 
-                Experiences start from £70. Share your requirements via email for a clear quote
-                
+            <p>
+                Experiences start from £70. Share your requirements using the
+                form or by email for a clear, no-obligation quote.
             </p>
 
             <BookingButton/>   
@@ -345,6 +350,6 @@ return (
 
             <CopyEmail />
         </section>
-    </main>
+    </div>
     );
 }
