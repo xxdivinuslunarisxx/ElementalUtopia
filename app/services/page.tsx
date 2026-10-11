@@ -340,6 +340,8 @@ export default function ServicesPage() {
                 <p>
                 Yes. Elemental Utopia is designed to operate in a variety of
                 settings, including suitable community events and pop-ups.
+                Community rates are available for charities and non-profit
+                organisations. Just mention it when you request a quote.
                 </p>
             </article>
 

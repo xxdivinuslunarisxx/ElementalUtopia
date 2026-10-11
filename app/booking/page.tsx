@@ -213,6 +213,10 @@ return (
                 Bookings start from £70, with the final price depending on factors such as the event duration, expected number of guests, location, and any additional requirements. Once you get in touch, I'll provide a clear, no-obligation quote tailored to your event, so you'll know exactly what's included before making a decision.
             </p>
 
+            <p>
+                Community rates are available for charities and non-profit organisations. Just mention it when you request a quote.
+            </p>
+
         </section>
 
 
