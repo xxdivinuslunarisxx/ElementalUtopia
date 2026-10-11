@@ -1,33 +1,23 @@
 import type { Metadata } from "next";
 
 /* =====================================================================
-   MENU PRICES: edit here.
-   Write each price as text, e.g. "£3.20".
-   Leave a price as "" to show "Price TBC" on the site.
+   MENU: edit the drinks offered here.
    ===================================================================== */
 const MENU: { hot: MenuItem[]; iced: MenuItem[] } = {
   hot: [
-    { name: "Espresso", price: "" },
-    { name: "Flat White", price: "" },
-    { name: "Latte", price: "" },
-    { name: "Cappuccino", price: "" },
-    { name: "Americano", price: "" },
+    { name: "Espresso" },
+    { name: "Flat White" },
+    { name: "Latte" },
+    { name: "Cappuccino" },
+    { name: "Americano" },
   ],
   iced: [
-    { name: "Iced Latte", price: "" },
-    { name: "Iced Americano", price: "" },
+    { name: "Iced Latte" },
+    { name: "Iced Americano" },
   ],
 };
 
-type MenuItem = { name: string; price: string };
-
-const allPriced = [...MENU.hot, ...MENU.iced].every(
-  (drink) => drink.price.trim() !== ""
-);
-
-function displayPrice(price: string) {
-  return price.trim() || "Price TBC";
-}
+type MenuItem = { name: string };
 
 export const metadata: Metadata = {
   title: "Coffee Menu",
@@ -71,8 +61,6 @@ export default function MenuPage() {
           <h1>Menu</h1>
           <p>
             Coffee drinks made with specialty espresso.
-            {!allPriced &&
-              " Prices are currently unset while the launch menu is being finalised."}
           </p>
         </div>
       </section>
@@ -82,10 +70,7 @@ export default function MenuPage() {
           <h2>Hot</h2>
           <ul className="priceList">
             {MENU.hot.map((drink) => (
-              <li key={drink.name}>
-                <span>{drink.name}</span>
-                <span>{displayPrice(drink.price)}</span>
-              </li>
+              <li key={drink.name}>{drink.name}</li>
             ))}
           </ul>
         </div>
@@ -93,10 +78,7 @@ export default function MenuPage() {
           <h2>Iced</h2>
           <ul className="priceList">
             {MENU.iced.map((drink) => (
-              <li key={drink.name}>
-                <span>{drink.name}</span>
-                <span>{displayPrice(drink.price)}</span>
-              </li>
+              <li key={drink.name}>{drink.name}</li>
             ))}
           </ul>
           <p className="smallNote">Iced drinks available when ice supply permits.</p>
